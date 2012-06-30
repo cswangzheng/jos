@@ -62,9 +62,9 @@ f0101ea0 r charcode
 f0102100 r commands
 f0102324 r error_string
 f0102350 R __STAB_BEGIN__
-f0106148 R __STAB_END__
-f0106149 R __STABSTR_BEGIN__
-f0107b6d R __STABSTR_END__
+f0106130 R __STAB_END__
+f0106131 R __STABSTR_BEGIN__
+f0107b55 R __STABSTR_END__
 f0108000 D bootstack
 f0110000 D bootstacktop
 f0110000 D entry_pgdir

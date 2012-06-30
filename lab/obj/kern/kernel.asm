@@ -1914,9 +1914,9 @@ f0100b74:	76 12                	jbe    f0100b88 <debuginfo_eip+0x54>
 
 	// String table validity checks
 	if (stabstr_end <= stabstr || stabstr_end[-1] != 0)
-f0100b76:	b8 6d 7b 10 f0       	mov    $0xf0107b6d,%eax
-f0100b7b:	3d 49 61 10 f0       	cmp    $0xf0106149,%eax
-f0100b80:	0f 86 f1 01 00 00    	jbe    f0100d77 <debuginfo_eip+0x243>
+f0100b76:	b8 55 7b 10 f0       	mov    $0xf0107b55,%eax
+f0100b7b:	3d 31 61 10 f0       	cmp    $0xf0106131,%eax
+f0100b80:	0f 86 e8 01 00 00    	jbe    f0100d6e <debuginfo_eip+0x23a>
 f0100b86:	eb 1c                	jmp    f0100ba4 <debuginfo_eip+0x70>
 		stab_end = __STAB_END__;
 		stabstr = __STABSTR_BEGIN__;
@@ -1942,8 +1942,8 @@ f0100ba4:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
 
 	// String table validity checks
 	if (stabstr_end <= stabstr || stabstr_end[-1] != 0)
-f0100ba9:	80 3d 6c 7b 10 f0 00 	cmpb   $0x0,0xf0107b6c
-f0100bb0:	0f 85 cd 01 00 00    	jne    f0100d83 <debuginfo_eip+0x24f>
+f0100ba9:	80 3d 54 7b 10 f0 00 	cmpb   $0x0,0xf0107b54
+f0100bb0:	0f 85 c4 01 00 00    	jne    f0100d7a <debuginfo_eip+0x246>
 	// 'eip'.  First, we find the basic source file containing 'eip'.
 	// Then, we look in that source file for the function.  Then we look
 	// for the line number.
@@ -1952,7 +1952,7 @@ f0100bb0:	0f 85 cd 01 00 00    	jne    f0100d83 <debuginfo_eip+0x24f>
 	lfile = 0;
 f0100bb6:	c7 45 e4 00 00 00 00 	movl   $0x0,-0x1c(%ebp)
 	rfile = (stab_end - stabs) - 1;
-f0100bbd:	b8 48 61 10 f0       	mov    $0xf0106148,%eax
+f0100bbd:	b8 30 61 10 f0       	mov    $0xf0106130,%eax
 f0100bc2:	2d 50 23 10 f0       	sub    $0xf0102350,%eax
 f0100bc7:	c1 f8 02             	sar    $0x2,%eax
 f0100bca:	69 c0 ab aa aa aa    	imul   $0xaaaaaaab,%eax,%eax
@@ -1976,7 +1976,7 @@ f0100bf4:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
 	stab_binsearch(stabs, &lfile, &rfile, N_SO, addr);
 	if (lfile == 0)
 f0100bf9:	85 d2                	test   %edx,%edx
-f0100bfb:	0f 84 82 01 00 00    	je     f0100d83 <debuginfo_eip+0x24f>
+f0100bfb:	0f 84 79 01 00 00    	je     f0100d7a <debuginfo_eip+0x246>
 		return -1;
 
 	// Search within that file's stabs for the function definition
@@ -2006,12 +2006,12 @@ f0100c2f:	6b c8 0c             	imul   $0xc,%eax,%ecx
 f0100c32:	8d b9 50 23 10 f0    	lea    -0xfefdcb0(%ecx),%edi
 f0100c38:	89 7d c0             	mov    %edi,-0x40(%ebp)
 f0100c3b:	8b 89 50 23 10 f0    	mov    -0xfefdcb0(%ecx),%ecx
-f0100c41:	bf 6d 7b 10 f0       	mov    $0xf0107b6d,%edi
-f0100c46:	81 ef 49 61 10 f0    	sub    $0xf0106149,%edi
+f0100c41:	bf 55 7b 10 f0       	mov    $0xf0107b55,%edi
+f0100c46:	81 ef 31 61 10 f0    	sub    $0xf0106131,%edi
 f0100c4c:	39 f9                	cmp    %edi,%ecx
 f0100c4e:	73 09                	jae    f0100c59 <debuginfo_eip+0x125>
 			info->eip_fn_name = stabstr + stabs[lfun].n_strx;
-f0100c50:	81 c1 49 61 10 f0    	add    $0xf0106149,%ecx
+f0100c50:	81 c1 31 61 10 f0    	add    $0xf0106131,%ecx
 f0100c56:	89 4b 08             	mov    %ecx,0x8(%ebx)
 		info->eip_fn_addr = stabs[lfun].n_value;
 f0100c59:	8b 7d c0             	mov    -0x40(%ebp),%edi
@@ -2061,155 +2061,146 @@ f0100caa:	e8 a5 fd ff ff       	call   f0100a54 <stab_binsearch>
 
 	
 	if (lline <= rline) {
-f0100caf:	8b 55 d4             	mov    -0x2c(%ebp),%edx
+f0100caf:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+f0100cb2:	3b 45 d0             	cmp    -0x30(%ebp),%eax
+f0100cb5:	7f 0d                	jg     f0100cc4 <debuginfo_eip+0x190>
 	info->eip_line = stabs[lline].n_desc;
-	} else {
-	return -1;
-f0100cb2:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
-	//	which one.
-	// Your code here.
-	stab_binsearch(stabs, &lline, &rline, N_SLINE, addr);
-
-	
-	if (lline <= rline) {
-f0100cb7:	3b 55 d0             	cmp    -0x30(%ebp),%edx
-f0100cba:	0f 8f c3 00 00 00    	jg     f0100d83 <debuginfo_eip+0x24f>
-	info->eip_line = stabs[lline].n_desc;
-f0100cc0:	6b d2 0c             	imul   $0xc,%edx,%edx
-f0100cc3:	0f b7 82 56 23 10 f0 	movzwl -0xfefdcaa(%edx),%eax
-f0100cca:	89 43 04             	mov    %eax,0x4(%ebx)
+f0100cb7:	6b c0 0c             	imul   $0xc,%eax,%eax
+f0100cba:	0f b7 80 56 23 10 f0 	movzwl -0xfefdcaa(%eax),%eax
+f0100cc1:	89 43 04             	mov    %eax,0x4(%ebx)
 	// Search backwards from the line number for the relevant filename
 	// stab.
 	// We can't just use the "lfile" stab because inlined functions
 	// can interpolate code from a different file!
 	// Such included source files use the N_SOL stab type.
 	while (lline >= lfile
-f0100ccd:	8b 45 d4             	mov    -0x2c(%ebp),%eax
-f0100cd0:	8b 4d e4             	mov    -0x1c(%ebp),%ecx
-f0100cd3:	39 c8                	cmp    %ecx,%eax
-f0100cd5:	7c 5f                	jl     f0100d36 <debuginfo_eip+0x202>
+f0100cc4:	8b 45 d4             	mov    -0x2c(%ebp),%eax
+f0100cc7:	8b 4d e4             	mov    -0x1c(%ebp),%ecx
+f0100cca:	39 c8                	cmp    %ecx,%eax
+f0100ccc:	7c 5f                	jl     f0100d2d <debuginfo_eip+0x1f9>
 	       && stabs[lline].n_type != N_SOL
-f0100cd7:	89 c2                	mov    %eax,%edx
-f0100cd9:	6b f0 0c             	imul   $0xc,%eax,%esi
-f0100cdc:	80 be 54 23 10 f0 84 	cmpb   $0x84,-0xfefdcac(%esi)
-f0100ce3:	75 18                	jne    f0100cfd <debuginfo_eip+0x1c9>
-f0100ce5:	eb 30                	jmp    f0100d17 <debuginfo_eip+0x1e3>
+f0100cce:	89 c2                	mov    %eax,%edx
+f0100cd0:	6b f0 0c             	imul   $0xc,%eax,%esi
+f0100cd3:	80 be 54 23 10 f0 84 	cmpb   $0x84,-0xfefdcac(%esi)
+f0100cda:	75 18                	jne    f0100cf4 <debuginfo_eip+0x1c0>
+f0100cdc:	eb 30                	jmp    f0100d0e <debuginfo_eip+0x1da>
 	       && (stabs[lline].n_type != N_SO || !stabs[lline].n_value))
 		lline--;
-f0100ce7:	83 e8 01             	sub    $0x1,%eax
+f0100cde:	83 e8 01             	sub    $0x1,%eax
 	// Search backwards from the line number for the relevant filename
 	// stab.
 	// We can't just use the "lfile" stab because inlined functions
 	// can interpolate code from a different file!
 	// Such included source files use the N_SOL stab type.
 	while (lline >= lfile
-f0100cea:	39 c1                	cmp    %eax,%ecx
-f0100cec:	7f 48                	jg     f0100d36 <debuginfo_eip+0x202>
+f0100ce1:	39 c1                	cmp    %eax,%ecx
+f0100ce3:	7f 48                	jg     f0100d2d <debuginfo_eip+0x1f9>
 	       && stabs[lline].n_type != N_SOL
-f0100cee:	89 c2                	mov    %eax,%edx
-f0100cf0:	8d 34 40             	lea    (%eax,%eax,2),%esi
-f0100cf3:	80 3c b5 54 23 10 f0 	cmpb   $0x84,-0xfefdcac(,%esi,4)
-f0100cfa:	84 
-f0100cfb:	74 1a                	je     f0100d17 <debuginfo_eip+0x1e3>
+f0100ce5:	89 c2                	mov    %eax,%edx
+f0100ce7:	8d 34 40             	lea    (%eax,%eax,2),%esi
+f0100cea:	80 3c b5 54 23 10 f0 	cmpb   $0x84,-0xfefdcac(,%esi,4)
+f0100cf1:	84 
+f0100cf2:	74 1a                	je     f0100d0e <debuginfo_eip+0x1da>
 	       && (stabs[lline].n_type != N_SO || !stabs[lline].n_value))
-f0100cfd:	8d 14 52             	lea    (%edx,%edx,2),%edx
-f0100d00:	8d 14 95 50 23 10 f0 	lea    -0xfefdcb0(,%edx,4),%edx
-f0100d07:	80 7a 04 64          	cmpb   $0x64,0x4(%edx)
-f0100d0b:	75 da                	jne    f0100ce7 <debuginfo_eip+0x1b3>
-f0100d0d:	83 7a 08 00          	cmpl   $0x0,0x8(%edx)
-f0100d11:	74 d4                	je     f0100ce7 <debuginfo_eip+0x1b3>
+f0100cf4:	8d 14 52             	lea    (%edx,%edx,2),%edx
+f0100cf7:	8d 14 95 50 23 10 f0 	lea    -0xfefdcb0(,%edx,4),%edx
+f0100cfe:	80 7a 04 64          	cmpb   $0x64,0x4(%edx)
+f0100d02:	75 da                	jne    f0100cde <debuginfo_eip+0x1aa>
+f0100d04:	83 7a 08 00          	cmpl   $0x0,0x8(%edx)
+f0100d08:	74 d4                	je     f0100cde <debuginfo_eip+0x1aa>
 		lline--;
 	if (lline >= lfile && stabs[lline].n_strx < stabstr_end - stabstr)
-f0100d13:	39 c1                	cmp    %eax,%ecx
-f0100d15:	7f 1f                	jg     f0100d36 <debuginfo_eip+0x202>
-f0100d17:	6b c0 0c             	imul   $0xc,%eax,%eax
-f0100d1a:	8b 80 50 23 10 f0    	mov    -0xfefdcb0(%eax),%eax
-f0100d20:	ba 6d 7b 10 f0       	mov    $0xf0107b6d,%edx
-f0100d25:	81 ea 49 61 10 f0    	sub    $0xf0106149,%edx
-f0100d2b:	39 d0                	cmp    %edx,%eax
-f0100d2d:	73 07                	jae    f0100d36 <debuginfo_eip+0x202>
+f0100d0a:	39 c8                	cmp    %ecx,%eax
+f0100d0c:	7c 1f                	jl     f0100d2d <debuginfo_eip+0x1f9>
+f0100d0e:	6b c0 0c             	imul   $0xc,%eax,%eax
+f0100d11:	8b 80 50 23 10 f0    	mov    -0xfefdcb0(%eax),%eax
+f0100d17:	ba 55 7b 10 f0       	mov    $0xf0107b55,%edx
+f0100d1c:	81 ea 31 61 10 f0    	sub    $0xf0106131,%edx
+f0100d22:	39 d0                	cmp    %edx,%eax
+f0100d24:	73 07                	jae    f0100d2d <debuginfo_eip+0x1f9>
 		info->eip_file = stabstr + stabs[lline].n_strx;
-f0100d2f:	05 49 61 10 f0       	add    $0xf0106149,%eax
-f0100d34:	89 03                	mov    %eax,(%ebx)
+f0100d26:	05 31 61 10 f0       	add    $0xf0106131,%eax
+f0100d2b:	89 03                	mov    %eax,(%ebx)
 	// Set eip_fn_narg to the number of arguments taken by the function,
 	// or 0 if there was no containing function.
 	if (lfun < rfun)
-f0100d36:	8b 55 dc             	mov    -0x24(%ebp),%edx
-f0100d39:	8b 4d d8             	mov    -0x28(%ebp),%ecx
+f0100d2d:	8b 55 dc             	mov    -0x24(%ebp),%edx
+f0100d30:	8b 4d d8             	mov    -0x28(%ebp),%ecx
 		for (lline = lfun + 1;
 		     lline < rfun && stabs[lline].n_type == N_PSYM;
 		     lline++)
 			info->eip_fn_narg++;
 	
 	return 0;
-f0100d3c:	b8 00 00 00 00       	mov    $0x0,%eax
+f0100d33:	b8 00 00 00 00       	mov    $0x0,%eax
 		lline--;
 	if (lline >= lfile && stabs[lline].n_strx < stabstr_end - stabstr)
 		info->eip_file = stabstr + stabs[lline].n_strx;
 	// Set eip_fn_narg to the number of arguments taken by the function,
 	// or 0 if there was no containing function.
 	if (lfun < rfun)
-f0100d41:	39 ca                	cmp    %ecx,%edx
-f0100d43:	7d 3e                	jge    f0100d83 <debuginfo_eip+0x24f>
+f0100d38:	39 ca                	cmp    %ecx,%edx
+f0100d3a:	7d 3e                	jge    f0100d7a <debuginfo_eip+0x246>
 		for (lline = lfun + 1;
-f0100d45:	83 c2 01             	add    $0x1,%edx
-f0100d48:	39 d1                	cmp    %edx,%ecx
-f0100d4a:	7e 37                	jle    f0100d83 <debuginfo_eip+0x24f>
+f0100d3c:	83 c2 01             	add    $0x1,%edx
+f0100d3f:	39 d1                	cmp    %edx,%ecx
+f0100d41:	7e 37                	jle    f0100d7a <debuginfo_eip+0x246>
 		     lline < rfun && stabs[lline].n_type == N_PSYM;
-f0100d4c:	6b f2 0c             	imul   $0xc,%edx,%esi
-f0100d4f:	80 be 54 23 10 f0 a0 	cmpb   $0xa0,-0xfefdcac(%esi)
-f0100d56:	75 2b                	jne    f0100d83 <debuginfo_eip+0x24f>
+f0100d43:	6b f2 0c             	imul   $0xc,%edx,%esi
+f0100d46:	80 be 54 23 10 f0 a0 	cmpb   $0xa0,-0xfefdcac(%esi)
+f0100d4d:	75 2b                	jne    f0100d7a <debuginfo_eip+0x246>
 		     lline++)
 			info->eip_fn_narg++;
-f0100d58:	83 43 14 01          	addl   $0x1,0x14(%ebx)
+f0100d4f:	83 43 14 01          	addl   $0x1,0x14(%ebx)
 	// Set eip_fn_narg to the number of arguments taken by the function,
 	// or 0 if there was no containing function.
 	if (lfun < rfun)
 		for (lline = lfun + 1;
 		     lline < rfun && stabs[lline].n_type == N_PSYM;
 		     lline++)
-f0100d5c:	83 c2 01             	add    $0x1,%edx
+f0100d53:	83 c2 01             	add    $0x1,%edx
 	if (lline >= lfile && stabs[lline].n_strx < stabstr_end - stabstr)
 		info->eip_file = stabstr + stabs[lline].n_strx;
 	// Set eip_fn_narg to the number of arguments taken by the function,
 	// or 0 if there was no containing function.
 	if (lfun < rfun)
 		for (lline = lfun + 1;
-f0100d5f:	39 d1                	cmp    %edx,%ecx
-f0100d61:	7e 1b                	jle    f0100d7e <debuginfo_eip+0x24a>
+f0100d56:	39 d1                	cmp    %edx,%ecx
+f0100d58:	7e 1b                	jle    f0100d75 <debuginfo_eip+0x241>
 		     lline < rfun && stabs[lline].n_type == N_PSYM;
-f0100d63:	8d 04 52             	lea    (%edx,%edx,2),%eax
-f0100d66:	80 3c 85 54 23 10 f0 	cmpb   $0xa0,-0xfefdcac(,%eax,4)
-f0100d6d:	a0 
-f0100d6e:	74 e8                	je     f0100d58 <debuginfo_eip+0x224>
+f0100d5a:	8d 04 52             	lea    (%edx,%edx,2),%eax
+f0100d5d:	80 3c 85 54 23 10 f0 	cmpb   $0xa0,-0xfefdcac(,%eax,4)
+f0100d64:	a0 
+f0100d65:	74 e8                	je     f0100d4f <debuginfo_eip+0x21b>
 		     lline++)
 			info->eip_fn_narg++;
 	
 	return 0;
-f0100d70:	b8 00 00 00 00       	mov    $0x0,%eax
-f0100d75:	eb 0c                	jmp    f0100d83 <debuginfo_eip+0x24f>
+f0100d67:	b8 00 00 00 00       	mov    $0x0,%eax
+f0100d6c:	eb 0c                	jmp    f0100d7a <debuginfo_eip+0x246>
   	        panic("User address");
 	}
 
 	// String table validity checks
 	if (stabstr_end <= stabstr || stabstr_end[-1] != 0)
 		return -1;
-f0100d77:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
-f0100d7c:	eb 05                	jmp    f0100d83 <debuginfo_eip+0x24f>
+f0100d6e:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+f0100d73:	eb 05                	jmp    f0100d7a <debuginfo_eip+0x246>
 		for (lline = lfun + 1;
 		     lline < rfun && stabs[lline].n_type == N_PSYM;
 		     lline++)
 			info->eip_fn_narg++;
 	
 	return 0;
-f0100d7e:	b8 00 00 00 00       	mov    $0x0,%eax
+f0100d75:	b8 00 00 00 00       	mov    $0x0,%eax
 }
-f0100d83:	8b 5d f4             	mov    -0xc(%ebp),%ebx
-f0100d86:	8b 75 f8             	mov    -0x8(%ebp),%esi
-f0100d89:	8b 7d fc             	mov    -0x4(%ebp),%edi
-f0100d8c:	89 ec                	mov    %ebp,%esp
-f0100d8e:	5d                   	pop    %ebp
-f0100d8f:	c3                   	ret    
+f0100d7a:	8b 5d f4             	mov    -0xc(%ebp),%ebx
+f0100d7d:	8b 75 f8             	mov    -0x8(%ebp),%esi
+f0100d80:	8b 7d fc             	mov    -0x4(%ebp),%edi
+f0100d83:	89 ec                	mov    %ebp,%esp
+f0100d85:	5d                   	pop    %ebp
+f0100d86:	c3                   	ret    
+	...
 
 f0100d90 <printnum>:
  * using specified putch function and associated pointer putdat.
