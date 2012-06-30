@@ -1,0 +1,3728 @@
+[f000:e05b]    0xfe05b:	jmp    0xfc7ba
+0x0000e05b in ?? ()
+[f000:c7ba]    0xfc7ba:	mov    %cr0,%eax
+0x0000c7ba in ?? ()
+[f000:c7bd]    0xfc7bd:	and    $0x9fffffff,%eax
+0x0000c7bd in ?? ()
+[f000:c7c3]    0xfc7c3:	mov    %eax,%cr0
+0x0000c7c3 in ?? ()
+[f000:c7c6]    0xfc7c6:	cli    
+0x0000c7c6 in ?? ()
+[f000:c7c7]    0xfc7c7:	cld    
+0x0000c7c7 in ?? ()
+[f000:c7c8]    0xfc7c8:	mov    $0x8f,%eax
+0x0000c7c8 in ?? ()
+[f000:c7ce]    0xfc7ce:	out    %al,$0x70
+0x0000c7ce in ?? ()
+[f000:c7d0]    0xfc7d0:	in     $0x71,%al
+0x0000c7d0 in ?? ()
+[f000:c7d2]    0xfc7d2:	cmp    $0x0,%al
+0x0000c7d2 in ?? ()
+[f000:c7d4]    0xfc7d4:	jne    0xfc7e9
+0x0000c7d4 in ?? ()
+[f000:c7d6]    0xfc7d6:	xor    %ax,%ax
+0x0000c7d6 in ?? ()
+[f000:c7d8]    0xfc7d8:	mov    %ax,%ss
+0x0000c7d8 in ?? ()
+[f000:c7da]    0xfc7da:	mov    $0x7000,%esp
+0x0000c7da in ?? ()
+[f000:c7e0]    0xfc7e0:	mov    $0xf54a2,%edx
+0x0000c7e0 in ?? ()
+[f000:c7e6]    0xfc7e6:	jmp    0xfc666
+0x0000c7e6 in ?? ()
+[f000:c666]    0xfc666:	mov    %eax,%ecx
+0x0000c666 in ?? ()
+[f000:c669]    0xfc669:	cli    
+0x0000c669 in ?? ()
+[f000:c66a]    0xfc66a:	cld    
+0x0000c66a in ?? ()
+[f000:c66b]    0xfc66b:	mov    $0x8f,%eax
+0x0000c66b in ?? ()
+[f000:c671]    0xfc671:	out    %al,$0x70
+0x0000c671 in ?? ()
+[f000:c673]    0xfc673:	in     $0x71,%al
+0x0000c673 in ?? ()
+[f000:c675]    0xfc675:	in     $0x92,%al
+0x0000c675 in ?? ()
+[f000:c677]    0xfc677:	or     $0x2,%al
+0x0000c677 in ?? ()
+[f000:c679]    0xfc679:	out    %al,$0x92
+0x0000c679 in ?? ()
+[f000:c67b]    0xfc67b:	lidtw  %cs:-0x2c20
+0x0000c67b in ?? ()
+[f000:c681]    0xfc681:	lgdtw  %cs:-0x2c60
+0x0000c681 in ?? ()
+[f000:c687]    0xfc687:	mov    %cr0,%eax
+0x0000c687 in ?? ()
+[f000:c68a]    0xfc68a:	or     $0x1,%eax
+0x0000c68a in ?? ()
+[f000:c68e]    0xfc68e:	mov    %eax,%cr0
+0x0000c68e in ?? ()
+[f000:c691]    0xfc691:	ljmpl  $0x8,$0xfc699
+0x0000c691 in ?? ()
+The target architecture is assumed to be i386
+=> 0xfc699:	mov    $0x10,%eax
+0x000fc699 in ?? ()
+=> 0xfc69e:	mov    %eax,%ds
+0x000fc69e in ?? ()
+=> 0xfc6a0:	mov    %eax,%es
+0x000fc6a0 in ?? ()
+=> 0xfc6a2:	mov    %eax,%ss
+0x000fc6a2 in ?? ()
+=> 0xfc6a4:	mov    %eax,%fs
+0x000fc6a4 in ?? ()
+=> 0xfc6a6:	mov    %eax,%gs
+0x000fc6a6 in ?? ()
+=> 0xfc6a8:	mov    %ecx,%eax
+0x000fc6a8 in ?? ()
+=> 0xfc6aa:	jmp    *%edx
+0x000fc6aa in ?? ()
+=> 0xf54a2:	push   %edi
+0x000f54a2 in ?? ()
+=> 0xf54a3:	push   %esi
+0x000f54a3 in ?? ()
+=> 0xf54a4:	sub    $0xc,%esp
+0x000f54a4 in ?? ()
+=> 0xf54a7:	xor    %edx,%edx
+0x000f54a7 in ?? ()
+=> 0xf54a9:	mov    %dl,%al
+0x000f54a9 in ?? ()
+=> 0xf54ab:	out    %al,$0xd
+0x000f54ab in ?? ()
+=> 0xf54ad:	out    %al,$0xda
+0x000f54ad in ?? ()
+=> 0xf54af:	mov    $0xc0,%al
+0x000f54af in ?? ()
+=> 0xf54b1:	out    %al,$0xd6
+0x000f54b1 in ?? ()
+=> 0xf54b3:	mov    %dl,%al
+0x000f54b3 in ?? ()
+=> 0xf54b5:	out    %al,$0xd4
+0x000f54b5 in ?? ()
+=> 0xf54b7:	movl   $0xf6778,0x4(%esp)
+0x000f54b7 in ?? ()
+=> 0xf54bf:	movl   $0xf65fd,(%esp)
+0x000f54bf in ?? ()
+=> 0xf54c6:	call   0xf40f6
+0x000f54c6 in ?? ()
+=> 0xf40f6:	lea    0x8(%esp),%ecx
+0x000f40f6 in ?? ()
+=> 0xf40fa:	mov    0x4(%esp),%edx
+0x000f40fa in ?? ()
+=> 0xf40fe:	mov    $0xf67d0,%eax
+0x000f40fe in ?? ()
+=> 0xf4103:	call   0xf3a9c
+0x000f4103 in ?? ()
+=> 0xf3a9c:	push   %ebp
+0x000f3a9c in ?? ()
+=> 0xf3a9d:	push   %edi
+0x000f3a9d in ?? ()
+=> 0xf3a9e:	push   %esi
+0x000f3a9e in ?? ()
+=> 0xf3a9f:	push   %ebx
+0x000f3a9f in ?? ()
+=> 0xf3aa0:	sub    $0x8,%esp
+0x000f3aa0 in ?? ()
+=> 0xf3aa3:	mov    %eax,%ebx
+0x000f3aa3 in ?? ()
+=> 0xf3aa5:	mov    %ecx,%esi
+0x000f3aa5 in ?? ()
+=> 0xf3aa7:	mov    %edx,%edi
+0x000f3aa7 in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ac0:	lea    0x1(%edi),%eax
+0x000f3ac0 in ?? ()
+=> 0xf3ac3:	mov    %eax,(%esp)
+0x000f3ac3 in ?? ()
+=> 0xf3ac6:	mov    $0x1,%ecx
+0x000f3ac6 in ?? ()
+=> 0xf3acb:	xor    %ebp,%ebp
+0x000f3acb in ?? ()
+=> 0xf3acd:	mov    (%esp),%edx
+0x000f3acd in ?? ()
+=> 0xf3ad0:	mov    (%edx),%al
+0x000f3ad0 in ?? ()
+=> 0xf3ad2:	lea    -0x30(%eax),%edx
+0x000f3ad2 in ?? ()
+=> 0xf3ad5:	cmp    $0x9,%dl
+0x000f3ad5 in ?? ()
+=> 0xf3ad8:	ja     0xf3af7
+0x000f3ad8 in ?? ()
+=> 0xf3af7:	mov    (%esp),%edx
+0x000f3af7 in ?? ()
+=> 0xf3afa:	cmp    $0x6c,%al
+0x000f3afa in ?? ()
+=> 0xf3afc:	jne    0xf3b04
+0x000f3afc in ?? ()
+=> 0xf3b04:	cmp    $0x70,%al
+0x000f3b04 in ?? ()
+=> 0xf3b06:	je     0xf3b7e
+0x000f3b06 in ?? ()
+=> 0xf3b08:	jg     0xf3b2f
+0x000f3b08 in ?? ()
+=> 0xf3b2f:	cmp    $0x75,%al
+0x000f3b2f in ?? ()
+=> 0xf3b31:	je     0xf3b6d
+0x000f3b31 in ?? ()
+=> 0xf3b33:	cmp    $0x78,%al
+0x000f3b33 in ?? ()
+=> 0xf3b35:	je     0xf3b97
+0x000f3b35 in ?? ()
+=> 0xf3b37:	cmp    $0x73,%al
+0x000f3b37 in ?? ()
+=> 0xf3b39:	jne    0xf3cb9
+0x000f3b39 in ?? ()
+=> 0xf3b3f:	jmp    0xf3ca4
+0x000f3b3f in ?? ()
+=> 0xf3ca4:	lea    0x4(%esi),%ebp
+0x000f3ca4 in ?? ()
+=> 0xf3ca7:	mov    (%esi),%esi
+0x000f3ca7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3caf:	movsbl %dl,%edx
+0x000f3caf in ?? ()
+=> 0xf3cb2:	mov    %ebx,%eax
+0x000f3cb2 in ?? ()
+=> 0xf3cb4:	call   *(%ebx)
+0x000f3cb4 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cb6:	inc    %esi
+0x000f3cb6 in ?? ()
+=> 0xf3cb7:	jmp    0xf3ca9
+0x000f3cb7 in ?? ()
+=> 0xf3ca9:	mov    (%esi),%dl
+0x000f3ca9 in ?? ()
+=> 0xf3cab:	test   %dl,%dl
+0x000f3cab in ?? ()
+=> 0xf3cad:	je     0xf3cc4
+0x000f3cad in ?? ()
+=> 0xf3cc4:	mov    (%esp),%edi
+0x000f3cc4 in ?? ()
+=> 0xf3cc7:	mov    %ebp,%esi
+0x000f3cc7 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ab3:	cmp    $0x25,%dl
+0x000f3ab3 in ?? ()
+=> 0xf3ab6:	je     0xf3ac0
+0x000f3ab6 in ?? ()
+=> 0xf3ab8:	movsbl %dl,%edx
+0x000f3ab8 in ?? ()
+=> 0xf3abb:	jmp    0xf3cbe
+0x000f3abb in ?? ()
+=> 0xf3cbe:	mov    %ebx,%eax
+0x000f3cbe in ?? ()
+=> 0xf3cc0:	call   *(%ebx)
+0x000f3cc0 in ?? ()
+=> 0xf3a38:	mov    %edx,%eax
+0x000f3a38 in ?? ()
+=> 0xf3a3a:	mov    $0x402,%edx
+0x000f3a3a in ?? ()
+=> 0xf3a3f:	out    %al,(%dx)
+0x000f3a3f in ?? ()
+=> 0xf3a40:	ret    
+0x000f3a40 in ?? ()
+=> 0xf3cc2:	jmp    0xf3cc9
+0x000f3cc2 in ?? ()
+=> 0xf3cc9:	inc    %edi
+0x000f3cc9 in ?? ()
+=> 0xf3cca:	jmp    0xf3aa9
+0x000f3cca in ?? ()
+=> 0xf3aa9:	mov    (%edi),%dl
+0x000f3aa9 in ?? ()
+=> 0xf3aab:	test   %dl,%dl
+0x000f3aab in ?? ()
+=> 0xf3aad:	je     0xf3ccf
+0x000f3aad in ?? ()
+=> 0xf3ccf:	add    $0x8,%esp
+0x000f3ccf in ?? ()
+=> 0xf3cd2:	pop    %ebx
+0x000f3cd2 in ?? ()
+=> 0xf3cd3:	pop    %esi
+0x000f3cd3 in ?? ()
+=> 0xf3cd4:	pop    %edi
+0x000f3cd4 in ?? ()
+=> 0xf3cd5:	pop    %ebp
+0x000f3cd5 in ?? ()
+=> 0xf3cd6:	ret    
+0x000f3cd6 in ?? ()
+=> 0xf4108:	ret    
+0x000f4108 in ?? ()
+=> 0xf54cb:	cmpl   $0x0,0xf6884
+0x000f54cb in ?? ()
+=> 0xf54d2:	je     0xf5589
+0x000f54d2 in ?? ()
+=> 0xf5589:	call   0xf5344
+0x000f5589 in ?? ()
+=> 0xf5344:	push   %eax
+0x000f5344 in ?? ()
+=> 0xf5345:	mov    $0xf6738,%eax
+0x000f5345 in ?? ()
+=> 0xf534a:	call   0xf5300
+0x000f534a in ?? ()
+=> 0xf5300:	push   %edi
+0x000f5300 in ?? ()
+=> 0xf5301:	push   %esi
+0x000f5301 in ?? ()
+=> 0xf5302:	push   %ebx
+0x000f5302 in ?? ()
+=> 0xf5303:	push   %ebx
+0x000f5303 in ?? ()
+=> 0xf5304:	mov    %eax,%esi
+0x000f5304 in ?? ()
+=> 0xf5306:	movl   $0x100,(%esp)
+0x000f5306 in ?? ()
+=> 0xf530d:	mov    %esp,%edx
+0x000f530d in ?? ()
+=> 0xf530f:	xor    %eax,%eax
+0x000f530f in ?? ()
+=> 0xf5311:	call   0xf3dba
+0x000f5311 in ?? ()
+=> 0xf3dba:	push   %ebp
+0x000f3dba in ?? ()
+=> 0xf3dbb:	push   %edi
+0x000f3dbb in ?? ()
+=> 0xf3dbc:	push   %esi
+0x000f3dbc in ?? ()
+=> 0xf3dbd:	push   %ebx
+0x000f3dbd in ?? ()
+=> 0xf3dbe:	push   %edi
+0x000f3dbe in ?? ()
+=> 0xf3dbf:	mov    %eax,%ebx
+0x000f3dbf in ?? ()
+=> 0xf3dc1:	mov    %edx,%edi
+0x000f3dc1 in ?? ()
+=> 0xf3dc3:	mov    %al,%dl
+0x000f3dc3 in ?? ()
+=> 0xf3dc5:	and    $0x7,%edx
+0x000f3dc5 in ?? ()
+=> 0xf3dc8:	dec    %dl
+0x000f3dc8 in ?? ()
+=> 0xf3dca:	jne    0xf3de1
+0x000f3dca in ?? ()
+=> 0xf3de1:	mov    (%edi),%eax
+0x000f3de1 in ?? ()
+=> 0xf3de3:	mov    %eax,(%esp)
+0x000f3de3 in ?? ()
+=> 0xf3de6:	cmp    (%esp),%ebx
+0x000f3de6 in ?? ()
+=> 0xf3de9:	jge    0xf3e3f
+0x000f3de9 in ?? ()
+=> 0xf3deb:	movzwl %bx,%esi
+0x000f3deb in ?? ()
+=> 0xf3dee:	xor    %edx,%edx
+0x000f3dee in ?? ()
+=> 0xf3df0:	mov    %esi,%eax
+0x000f3df0 in ?? ()
+=> 0xf3df2:	call   0xf3d65
+0x000f3df2 in ?? ()
+=> 0xf3d65:	push   %ebx
+0x000f3d65 in ?? ()
+=> 0xf3d66:	mov    %edx,%ecx
+0x000f3d66 in ?? ()
+=> 0xf3d68:	mov    %edx,%ebx
+0x000f3d68 in ?? ()
+=> 0xf3d6a:	and    $0xfc,%ebx
+0x000f3d6a in ?? ()
+=> 0xf3d70:	or     $0x80000000,%ebx
+0x000f3d70 in ?? ()
+=> 0xf3d76:	shl    $0x8,%eax
+0x000f3d76 in ?? ()
+=> 0xf3d79:	or     %eax,%ebx
+0x000f3d79 in ?? ()
+=> 0xf3d7b:	mov    $0xcf8,%edx
+0x000f3d7b in ?? ()
+=> 0xf3d80:	mov    %ebx,%eax
+0x000f3d80 in ?? ()
+=> 0xf3d82:	out    %eax,(%dx)
+0x000f3d82 in ?? ()
+=> 0xf3d83:	and    $0x2,%ecx
+0x000f3d83 in ?? ()
+=> 0xf3d86:	lea    0xcfc(%ecx),%edx
+0x000f3d86 in ?? ()
+=> 0xf3d8c:	in     (%dx),%ax
+0x000f3d8c in ?? ()
+=> 0xf3d8e:	pop    %ebx
+0x000f3d8e in ?? ()
+=> 0xf3d8f:	ret    
+0x000f3d8f in ?? ()
+=> 0xf3df7:	dec    %eax
+0x000f3df7 in ?? ()
+=> 0xf3df8:	cmp    $0xfffd,%ax
+0x000f3df8 in ?? ()
+=> 0xf3dfc:	jbe    0xf3e0b
+0x000f3dfc in ?? ()
+=> 0xf3e0b:	mov    $0xe,%edx
+0x000f3e0b in ?? ()
+=> 0xf3e10:	mov    %esi,%eax
+0x000f3e10 in ?? ()
+=> 0xf3e12:	call   0xf3d90
+0x000f3e12 in ?? ()
+=> 0xf3d90:	push   %ebx
+0x000f3d90 in ?? ()
+=> 0xf3d91:	mov    %edx,%ecx
+0x000f3d91 in ?? ()
+=> 0xf3d93:	mov    %edx,%ebx
+0x000f3d93 in ?? ()
+=> 0xf3d95:	and    $0xfc,%ebx
+0x000f3d95 in ?? ()
+=> 0xf3d9b:	or     $0x80000000,%ebx
+0x000f3d9b in ?? ()
+=> 0xf3da1:	shl    $0x8,%eax
+0x000f3da1 in ?? ()
+=> 0xf3da4:	or     %eax,%ebx
+0x000f3da4 in ?? ()
+=> 0xf3da6:	mov    $0xcf8,%edx
+0x000f3da6 in ?? ()
+=> 0xf3dab:	mov    %ebx,%eax
+0x000f3dab in ?? ()
+=> 0xf3dad:	out    %eax,(%dx)
+0x000f3dad in ?? ()
+=> 0xf3dae:	and    $0x3,%ecx
+0x000f3dae in ?? ()
+=> 0xf3db1:	lea    0xcfc(%ecx),%edx
+0x000f3db1 in ?? ()
+=> 0xf3db7:	in     (%dx),%al
+0x000f3db7 in ?? ()
+=> 0xf3db8:	pop    %ebx
+0x000f3db8 in ?? ()
+=> 0xf3db9:	ret    
+0x000f3db9 in ?? ()
+=> 0xf3e17:	and    $0x7f,%eax
+0x000f3e17 in ?? ()
+=> 0xf3e1a:	dec    %eax
+0x000f3e1a in ?? ()
+=> 0xf3e1b:	cmp    $0x1,%eax
+0x000f3e1b in ?? ()
+=> 0xf3e1e:	ja     0xf3e42
+0x000f3e1e in ?? ()
+=> 0xf3e42:	mov    %ebx,%eax
+0x000f3e42 in ?? ()
+=> 0xf3e44:	pop    %esi
+0x000f3e44 in ?? ()
+=> 0xf3e45:	pop    %ebx
+0x000f3e45 in ?? ()
+=> 0xf3e46:	pop    %esi
+0x000f3e46 in ?? ()
+=> 0xf3e47:	pop    %edi
+0x000f3e47 in ?? ()
+=> 0xf3e48:	pop    %ebp
+0x000f3e48 in ?? ()
+=> 0xf3e49:	ret    
+0x000f3e49 in ?? ()
+=> 0xf5316:	mov    %eax,%ebx
+0x000f5316 in ?? ()
+=> 0xf5318:	jmp    0xf5336
+0x000f5318 in ?? ()
+=> 0xf5336:	test   %ebx,%ebx
+0x000f5336 in ?? ()
+=> 0xf5338:	jns    0xf531a
+0x000f5338 in ?? ()
+=> 0xf531a:	movzwl %bx,%edx
+0x000f531a in ?? ()
+=> 0xf531d:	xor    %ecx,%ecx
+0x000f531d in ?? ()
+=> 0xf531f:	mov    %esi,%eax
+0x000f531f in ?? ()
+=> 0xf5321:	call   0xf3e4a
+0x000f5321 in ?? ()
+=> 0xf3e4a:	push   %ebp
+0x000f3e4a in ?? ()
+=> 0xf3e4b:	push   %edi
+0x000f3e4b in ?? ()
+=> 0xf3e4c:	push   %esi
+0x000f3e4c in ?? ()
+=> 0xf3e4d:	push   %ebx
+0x000f3e4d in ?? ()
+=> 0xf3e4e:	push   %ebx
+0x000f3e4e in ?? ()
+=> 0xf3e4f:	mov    %eax,%ebx
+0x000f3e4f in ?? ()
+=> 0xf3e51:	mov    %ecx,(%esp)
+0x000f3e51 in ?? ()
+=> 0xf3e54:	mov    %edx,%esi
+0x000f3e54 in ?? ()
+=> 0xf3e56:	xor    %edx,%edx
+0x000f3e56 in ?? ()
+=> 0xf3e58:	mov    %esi,%eax
+0x000f3e58 in ?? ()
+=> 0xf3e5a:	call   0xf3d65
+0x000f3e5a in ?? ()
+=> 0xf3d65:	push   %ebx
+0x000f3d65 in ?? ()
+=> 0xf3d66:	mov    %edx,%ecx
+0x000f3d66 in ?? ()
+=> 0xf3d68:	mov    %edx,%ebx
+0x000f3d68 in ?? ()
+=> 0xf3d6a:	and    $0xfc,%ebx
+0x000f3d6a in ?? ()
+=> 0xf3d70:	or     $0x80000000,%ebx
+0x000f3d70 in ?? ()
+=> 0xf3d76:	shl    $0x8,%eax
+0x000f3d76 in ?? ()
+=> 0xf3d79:	or     %eax,%ebx
+0x000f3d79 in ?? ()
+=> 0xf3d7b:	mov    $0xcf8,%edx
+0x000f3d7b in ?? ()
+=> 0xf3d80:	mov    %ebx,%eax
+0x000f3d80 in ?? ()
+=> 0xf3d82:	out    %eax,(%dx)
+0x000f3d82 in ?? ()
+=> 0xf3d83:	and    $0x2,%ecx
+0x000f3d83 in ?? ()
+=> 0xf3d86:	lea    0xcfc(%ecx),%edx
+0x000f3d86 in ?? ()
+=> 0xf3d8c:	in     (%dx),%ax
+0x000f3d8c in ?? ()
+=> 0xf3d8e:	pop    %ebx
+0x000f3d8e in ?? ()
+=> 0xf3d8f:	ret    
+0x000f3d8f in ?? ()
+=> 0xf3e5f:	mov    %eax,%ebp
+0x000f3e5f in ?? ()
+=> 0xf3e61:	mov    $0x2,%edx
+0x000f3e61 in ?? ()
+=> 0xf3e66:	mov    %esi,%eax
+0x000f3e66 in ?? ()
+=> 0xf3e68:	call   0xf3d65
+0x000f3e68 in ?? ()
+=> 0xf3d65:	push   %ebx
+0x000f3d65 in ?? ()
+=> 0xf3d66:	mov    %edx,%ecx
+0x000f3d66 in ?? ()
+=> 0xf3d68:	mov    %edx,%ebx
+0x000f3d68 in ?? ()
+=> 0xf3d6a:	and    $0xfc,%ebx
+0x000f3d6a in ?? ()
+=> 0xf3d70:	or     $0x80000000,%ebx
+0x000f3d70 in ?? ()
+=> 0xf3d76:	shl    $0x8,%eax
+0x000f3d76 in ?? ()
+=> 0xf3d79:	or     %eax,%ebx
+0x000f3d79 in ?? ()
+=> 0xf3d7b:	mov    $0xcf8,%edx
+0x000f3d7b in ?? ()
+=> 0xf3d80:	mov    %ebx,%eax
+0x000f3d80 in ?? ()
+=> 0xf3d82:	out    %eax,(%dx)
+0x000f3d82 in ?? ()
+=> 0xf3d83:	and    $0x2,%ecx
+0x000f3d83 in ?? ()
+=> 0xf3d86:	lea    0xcfc(%ecx),%edx
+0x000f3d86 in ?? ()
+=> 0xf3d8c:	in     (%dx),%ax
+0x000f3d8c in ?? ()
+=> 0xf3d8e:	pop    %ebx
+0x000f3d8e in ?? ()
+=> 0xf3d8f:	ret    
+0x000f3d8f in ?? ()
+=> 0xf3e6d:	mov    %eax,%edi
+0x000f3e6d in ?? ()
+=> 0xf3e6f:	mov    $0xa,%edx
+0x000f3e6f in ?? ()
+=> 0xf3e74:	mov    %esi,%eax
+0x000f3e74 in ?? ()
+=> 0xf3e76:	call   0xf3d65
+0x000f3e76 in ?? ()
+=> 0xf3d65:	push   %ebx
+0x000f3d65 in ?? ()
+=> 0xf3d66:	mov    %edx,%ecx
+0x000f3d66 in ?? ()
+=> 0xf3d68:	mov    %edx,%ebx
+0x000f3d68 in ?? ()
+=> 0xf3d6a:	and    $0xfc,%ebx
+0x000f3d6a in ?? ()
+=> 0xf3d70:	or     $0x80000000,%ebx
+0x000f3d70 in ?? ()
+=> 0xf3d76:	shl    $0x8,%eax
+0x000f3d76 in ?? ()
+=> 0xf3d79:	or     %eax,%ebx
+0x000f3d79 in ?? ()
+=> 0xf3d7b:	mov    $0xcf8,%edx
+0x000f3d7b in ?? ()
+=> 0xf3d80:	mov    %ebx,%eax
+0x000f3d80 in ?? ()
+=> 0xf3d82:	out    %eax,(%dx)
+0x000f3d82 in ?? ()
+=> 0xf3d83:	and    $0x2,%ecx
+0x000f3d83 in ?? ()
+=> 0xf3d86:	lea    0xcfc(%ecx),%edx
+0x000f3d86 in ?? ()
+=> 0xf3d8c:	in     (%dx),%ax
+0x000f3d8c in ?? ()
+=> 0xf3d8e:	pop    %ebx
+0x000f3d8e in ?? ()
+=> 0xf3d8f:	ret    
+0x000f3d8f in ?? ()
+=> 0xf3e7b:	movzwl %ax,%eax
+0x000f3e7b in ?? ()
+=> 0xf3e7e:	movzwl %di,%edi
+0x000f3e7e in ?? ()
+=> 0xf3e81:	movzwl %bp,%ebp
+0x000f3e81 in ?? ()
+=> 0xf3e84:	jmp    0xf3eba
+0x000f3e84 in ?? ()
+=> 0xf3eba:	mov    (%ebx),%edx
+0x000f3eba in ?? ()
+=> 0xf3ebc:	test   %edx,%edx
+0x000f3ebc in ?? ()
+=> 0xf3ebe:	jne    0xf3e86
+0x000f3ebe in ?? ()
+=> 0xf3e86:	cmp    $0xffffffff,%edx
+0x000f3e86 in ?? ()
+=> 0xf3e89:	je     0xf3e8f
+0x000f3e89 in ?? ()
+=> 0xf3e8b:	cmp    %ebp,%edx
+0x000f3e8b in ?? ()
+=> 0xf3e8d:	jne    0xf3eb7
+0x000f3e8d in ?? ()
+=> 0xf3e8f:	mov    0x4(%ebx),%edx
+0x000f3e8f in ?? ()
+=> 0xf3e92:	cmp    $0xffffffff,%edx
+0x000f3e92 in ?? ()
+=> 0xf3e95:	je     0xf3e9b
+0x000f3e95 in ?? ()
+=> 0xf3e97:	cmp    %edi,%edx
+0x000f3e97 in ?? ()
+=> 0xf3e99:	jne    0xf3eb7
+0x000f3e99 in ?? ()
+=> 0xf3e9b:	mov    0x8(%ebx),%edx
+0x000f3e9b in ?? ()
+=> 0xf3e9e:	xor    %eax,%edx
+0x000f3e9e in ?? ()
+=> 0xf3ea0:	test   %edx,0xc(%ebx)
+0x000f3ea0 in ?? ()
+=> 0xf3ea3:	jne    0xf3eb7
+0x000f3ea3 in ?? ()
+=> 0xf3ea5:	mov    0x10(%ebx),%ecx
+0x000f3ea5 in ?? ()
+=> 0xf3ea8:	xor    %ebx,%ebx
+0x000f3ea8 in ?? ()
+=> 0xf3eaa:	test   %ecx,%ecx
+0x000f3eaa in ?? ()
+=> 0xf3eac:	je     0xf3ec9
+0x000f3eac in ?? ()
+=> 0xf3eae:	mov    (%esp),%edx
+0x000f3eae in ?? ()
+=> 0xf3eb1:	mov    %esi,%eax
+0x000f3eb1 in ?? ()
+=> 0xf3eb3:	call   *%ecx
+0x000f3eb3 in ?? ()
+=> 0xf4304:	push   %ebx
+0x000f4304 in ?? ()
+=> 0xf4305:	movzwl %ax,%ebx
+0x000f4305 in ?? ()
+=> 0xf4308:	mov    $0x59,%edx
+0x000f4308 in ?? ()
+=> 0xf430d:	mov    %ebx,%eax
+0x000f430d in ?? ()
+=> 0xf430f:	call   0xf3d90
+0x000f430f in ?? ()
+=> 0xf3d90:	push   %ebx
+0x000f3d90 in ?? ()
+=> 0xf3d91:	mov    %edx,%ecx
+0x000f3d91 in ?? ()
+=> 0xf3d93:	mov    %edx,%ebx
+0x000f3d93 in ?? ()
+=> 0xf3d95:	and    $0xfc,%ebx
+0x000f3d95 in ?? ()
+=> 0xf3d9b:	or     $0x80000000,%ebx
+0x000f3d9b in ?? ()
+=> 0xf3da1:	shl    $0x8,%eax
+0x000f3da1 in ?? ()
+=> 0xf3da4:	or     %eax,%ebx
+0x000f3da4 in ?? ()
+=> 0xf3da6:	mov    $0xcf8,%edx
+0x000f3da6 in ?? ()
+=> 0xf3dab:	mov    %ebx,%eax
+0x000f3dab in ?? ()
+=> 0xf3dad:	out    %eax,(%dx)
+0x000f3dad in ?? ()
+=> 0xf3dae:	and    $0x3,%ecx
+0x000f3dae in ?? ()
+=> 0xf3db1:	lea    0xcfc(%ecx),%edx
+0x000f3db1 in ?? ()
+=> 0xf3db7:	in     (%dx),%al
+0x000f3db7 in ?? ()
+=> 0xf3db8:	pop    %ebx
+0x000f3db8 in ?? ()
+=> 0xf3db9:	ret    
+0x000f3db9 in ?? ()
+=> 0xf4314:	mov    $0x59,%edx
+0x000f4314 in ?? ()
+=> 0xf4319:	test   $0x10,%al
+0x000f4319 in ?? ()
+=> 0xf431b:	mov    %ebx,%eax
+0x000f431b in ?? ()
+=> 0xf431d:	jne    0xf4328
+0x000f431d in ?? ()
+=> 0xf431f:	mov    $0xffff429e,%ecx
+0x000f431f in ?? ()
+=> 0xf4324:	call   *%ecx
+0x000f4324 in ?? ()
+=> 0xffff429e:	push   %ebp
+0xffff429e in ?? ()
+=> 0xffff429f:	push   %edi
+0xffff429f in ?? ()
+=> 0xffff42a0:	push   %esi
+0xffff42a0 in ?? ()
+=> 0xffff42a1:	push   %ebx
+0xffff42a1 in ?? ()
+=> 0xffff42a2:	mov    %edx,%edi
+0xffff42a2 in ?? ()
+=> 0xffff42a4:	mov    $0x1,%esi
+0xffff42a4 in ?? ()
+=> 0xffff42a9:	movzwl %ax,%ebx
+0xffff42a9 in ?? ()
+=> 0xffff42ac:	lea    (%esi,%edi,1),%ebp
+0xffff42ac in ?? ()
+=> 0xffff42af:	mov    %ebp,%edx
+0xffff42af in ?? ()
+=> 0xffff42b1:	mov    %ebx,%eax
+0xffff42b1 in ?? ()
+=> 0xffff42b3:	call   0xffff3d90
+0xffff42b3 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42b8:	mov    $0x33,%ecx
+0xffff42b8 in ?? ()
+=> 0xffff42bd:	mov    %ebp,%edx
+0xffff42bd in ?? ()
+=> 0xffff42bf:	mov    %ebx,%eax
+0xffff42bf in ?? ()
+=> 0xffff42c1:	call   0xffff3d1a
+0xffff42c1 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42c6:	inc    %esi
+0xffff42c6 in ?? ()
+=> 0xffff42c7:	cmp    $0x7,%esi
+0xffff42c7 in ?? ()
+=> 0xffff42ca:	jne    0xffff42ac
+0xffff42ca in ?? ()
+=> 0xffff42ac:	lea    (%esi,%edi,1),%ebp
+0xffff42ac in ?? ()
+=> 0xffff42af:	mov    %ebp,%edx
+0xffff42af in ?? ()
+=> 0xffff42b1:	mov    %ebx,%eax
+0xffff42b1 in ?? ()
+=> 0xffff42b3:	call   0xffff3d90
+0xffff42b3 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42b8:	mov    $0x33,%ecx
+0xffff42b8 in ?? ()
+=> 0xffff42bd:	mov    %ebp,%edx
+0xffff42bd in ?? ()
+=> 0xffff42bf:	mov    %ebx,%eax
+0xffff42bf in ?? ()
+=> 0xffff42c1:	call   0xffff3d1a
+0xffff42c1 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42c6:	inc    %esi
+0xffff42c6 in ?? ()
+=> 0xffff42c7:	cmp    $0x7,%esi
+0xffff42c7 in ?? ()
+=> 0xffff42ca:	jne    0xffff42ac
+0xffff42ca in ?? ()
+=> 0xffff42ac:	lea    (%esi,%edi,1),%ebp
+0xffff42ac in ?? ()
+=> 0xffff42af:	mov    %ebp,%edx
+0xffff42af in ?? ()
+=> 0xffff42b1:	mov    %ebx,%eax
+0xffff42b1 in ?? ()
+=> 0xffff42b3:	call   0xffff3d90
+0xffff42b3 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42b8:	mov    $0x33,%ecx
+0xffff42b8 in ?? ()
+=> 0xffff42bd:	mov    %ebp,%edx
+0xffff42bd in ?? ()
+=> 0xffff42bf:	mov    %ebx,%eax
+0xffff42bf in ?? ()
+=> 0xffff42c1:	call   0xffff3d1a
+0xffff42c1 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42c6:	inc    %esi
+0xffff42c6 in ?? ()
+=> 0xffff42c7:	cmp    $0x7,%esi
+0xffff42c7 in ?? ()
+=> 0xffff42ca:	jne    0xffff42ac
+0xffff42ca in ?? ()
+=> 0xffff42ac:	lea    (%esi,%edi,1),%ebp
+0xffff42ac in ?? ()
+=> 0xffff42af:	mov    %ebp,%edx
+0xffff42af in ?? ()
+=> 0xffff42b1:	mov    %ebx,%eax
+0xffff42b1 in ?? ()
+=> 0xffff42b3:	call   0xffff3d90
+0xffff42b3 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42b8:	mov    $0x33,%ecx
+0xffff42b8 in ?? ()
+=> 0xffff42bd:	mov    %ebp,%edx
+0xffff42bd in ?? ()
+=> 0xffff42bf:	mov    %ebx,%eax
+0xffff42bf in ?? ()
+=> 0xffff42c1:	call   0xffff3d1a
+0xffff42c1 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42c6:	inc    %esi
+0xffff42c6 in ?? ()
+=> 0xffff42c7:	cmp    $0x7,%esi
+0xffff42c7 in ?? ()
+=> 0xffff42ca:	jne    0xffff42ac
+0xffff42ca in ?? ()
+=> 0xffff42ac:	lea    (%esi,%edi,1),%ebp
+0xffff42ac in ?? ()
+=> 0xffff42af:	mov    %ebp,%edx
+0xffff42af in ?? ()
+=> 0xffff42b1:	mov    %ebx,%eax
+0xffff42b1 in ?? ()
+=> 0xffff42b3:	call   0xffff3d90
+0xffff42b3 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42b8:	mov    $0x33,%ecx
+0xffff42b8 in ?? ()
+=> 0xffff42bd:	mov    %ebp,%edx
+0xffff42bd in ?? ()
+=> 0xffff42bf:	mov    %ebx,%eax
+0xffff42bf in ?? ()
+=> 0xffff42c1:	call   0xffff3d1a
+0xffff42c1 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42c6:	inc    %esi
+0xffff42c6 in ?? ()
+=> 0xffff42c7:	cmp    $0x7,%esi
+0xffff42c7 in ?? ()
+=> 0xffff42ca:	jne    0xffff42ac
+0xffff42ca in ?? ()
+=> 0xffff42ac:	lea    (%esi,%edi,1),%ebp
+0xffff42ac in ?? ()
+=> 0xffff42af:	mov    %ebp,%edx
+0xffff42af in ?? ()
+=> 0xffff42b1:	mov    %ebx,%eax
+0xffff42b1 in ?? ()
+=> 0xffff42b3:	call   0xffff3d90
+0xffff42b3 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42b8:	mov    $0x33,%ecx
+0xffff42b8 in ?? ()
+=> 0xffff42bd:	mov    %ebp,%edx
+0xffff42bd in ?? ()
+=> 0xffff42bf:	mov    %ebx,%eax
+0xffff42bf in ?? ()
+=> 0xffff42c1:	call   0xffff3d1a
+0xffff42c1 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42c6:	inc    %esi
+0xffff42c6 in ?? ()
+=> 0xffff42c7:	cmp    $0x7,%esi
+0xffff42c7 in ?? ()
+=> 0xffff42ca:	jne    0xffff42ac
+0xffff42ca in ?? ()
+=> 0xffff42cc:	mov    %edi,%edx
+0xffff42cc in ?? ()
+=> 0xffff42ce:	mov    %ebx,%eax
+0xffff42ce in ?? ()
+=> 0xffff42d0:	call   0xffff3d90
+0xffff42d0 in ?? ()
+=> 0xffff3d90:	push   %ebx
+0xffff3d90 in ?? ()
+=> 0xffff3d91:	mov    %edx,%ecx
+0xffff3d91 in ?? ()
+=> 0xffff3d93:	mov    %edx,%ebx
+0xffff3d93 in ?? ()
+=> 0xffff3d95:	and    $0xfc,%ebx
+0xffff3d95 in ?? ()
+=> 0xffff3d9b:	or     $0x80000000,%ebx
+0xffff3d9b in ?? ()
+=> 0xffff3da1:	shl    $0x8,%eax
+0xffff3da1 in ?? ()
+=> 0xffff3da4:	or     %eax,%ebx
+0xffff3da4 in ?? ()
+=> 0xffff3da6:	mov    $0xcf8,%edx
+0xffff3da6 in ?? ()
+=> 0xffff3dab:	mov    %ebx,%eax
+0xffff3dab in ?? ()
+=> 0xffff3dad:	out    %eax,(%dx)
+0xffff3dad in ?? ()
+=> 0xffff3dae:	and    $0x3,%ecx
+0xffff3dae in ?? ()
+=> 0xffff3db1:	lea    0xcfc(%ecx),%edx
+0xffff3db1 in ?? ()
+=> 0xffff3db7:	in     (%dx),%al
+0xffff3db7 in ?? ()
+=> 0xffff3db8:	pop    %ebx
+0xffff3db8 in ?? ()
+=> 0xffff3db9:	ret    
+0xffff3db9 in ?? ()
+=> 0xffff42d5:	mov    %eax,%esi
+0xffff42d5 in ?? ()
+=> 0xffff42d7:	mov    $0x30,%ecx
+0xffff42d7 in ?? ()
+=> 0xffff42dc:	mov    %edi,%edx
+0xffff42dc in ?? ()
+=> 0xffff42de:	mov    %ebx,%eax
+0xffff42de in ?? ()
+=> 0xffff42e0:	call   0xffff3d1a
+0xffff42e0 in ?? ()
+=> 0xffff3d1a:	push   %esi
+0xffff3d1a in ?? ()
+=> 0xffff3d1b:	push   %ebx
+0xffff3d1b in ?? ()
+=> 0xffff3d1c:	mov    %eax,%esi
+0xffff3d1c in ?? ()
+=> 0xffff3d1e:	mov    %edx,%ebx
+0xffff3d1e in ?? ()
+=> 0xffff3d20:	mov    %edx,%eax
+0xffff3d20 in ?? ()
+=> 0xffff3d22:	and    $0xfc,%eax
+0xffff3d22 in ?? ()
+=> 0xffff3d27:	or     $0x80000000,%eax
+0xffff3d27 in ?? ()
+=> 0xffff3d2c:	shl    $0x8,%esi
+0xffff3d2c in ?? ()
+=> 0xffff3d2f:	or     %esi,%eax
+0xffff3d2f in ?? ()
+=> 0xffff3d31:	mov    $0xcf8,%edx
+0xffff3d31 in ?? ()
+=> 0xffff3d36:	out    %eax,(%dx)
+0xffff3d36 in ?? ()
+=> 0xffff3d37:	and    $0x3,%ebx
+0xffff3d37 in ?? ()
+=> 0xffff3d3a:	lea    0xcfc(%ebx),%edx
+0xffff3d3a in ?? ()
+=> 0xffff3d40:	mov    %cl,%al
+0xffff3d40 in ?? ()
+=> 0xffff3d42:	out    %al,(%dx)
+0xffff3d42 in ?? ()
+=> 0xffff3d43:	pop    %ebx
+0xffff3d43 in ?? ()
+=> 0xffff3d44:	pop    %esi
+0xffff3d44 in ?? ()
+=> 0xffff3d45:	ret    
+0xffff3d45 in ?? ()
+=> 0xffff42e5:	and    $0x10,%esi
+0xffff42e5 in ?? ()
+=> 0xffff42e8:	jne    0xffff42ff
+0xffff42e8 in ?? ()
+=> 0xffff42ea:	mov    $0xe5480,%eax
+0xffff42ea in ?? ()
+=> 0xffff42ef:	mov    $0x100000,%ecx
+0xffff42ef in ?? ()
+=> 0xffff42f4:	sub    %eax,%ecx
+0xffff42f4 in ?? ()
+=> 0xffff42f6:	mov    $0xfffe5480,%esi
+0xffff42f6 in ?? ()
+=> 0xffff42fb:	mov    %eax,%edi
+0xffff42fb in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+=> 0xffff42fd:	rep movsb %ds:(%esi),%es:(%edi)
+0xffff42fd in ?? ()
+Continuing.
+Remote connection closed
+The program is not being run.
+The program is not being run.
+The program is not being run.
