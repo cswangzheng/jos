@@ -7,14 +7,22 @@ entering test_backtrace 2
 entering test_backtrace 1
 entering test_backtrace 0
 Stack backtrace:
-ebp f010ff18 eip f0100087 args 00000000 00000000 00000000 00000000 f0100974
-ebp f010ff38 eip f0100069 args 00000000 00000001 f010ff78 00000000 f0100974
-ebp f010ff58 eip f0100069 args 00000001 00000002 f010ff98 00000000 f0100974
-ebp f010ff78 eip f0100069 args 00000002 00000003 f010ffb8 00000000 f0100974
+ebp f010ff18 eip f0100087 args 00000000 00000000 00000000 00000000 f01009d0
+	     kern/init.c:19: test_backtrace+71
+ebp f010ff38 eip f0100069 args 00000000 00000001 f010ff78 00000000 f01009d0
+	     kern/init.c:16: test_backtrace+41
+ebp f010ff58 eip f0100069 args 00000001 00000002 f010ff98 00000000 f01009d0
+	     kern/init.c:16: test_backtrace+41
+ebp f010ff78 eip f0100069 args 00000002 00000003 f010ffb8 00000000 f01009d0
+	     kern/init.c:16: test_backtrace+41
 ebp f010ff98 eip f0100069 args 00000003 00000004 00000000 00000000 00000000
+	     kern/init.c:16: test_backtrace+41
 ebp f010ffb8 eip f0100069 args 00000004 00000005 00000000 00010094 00010094
+	     kern/init.c:16: test_backtrace+41
 ebp f010ffd8 eip f01000f6 args 00000005 00001aac 0000067c 00000000 00000000
+	     kern/init.c:48: i386_init+89
 ebp f010fff8 eip f010003e args 00111021 00000000 00000000 00000000 00000000
+	     D:82: <unknown>+0
 leaving test_backtrace 0
 leaving test_backtrace 1
 leaving test_backtrace 2
