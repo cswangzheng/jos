@@ -248,10 +248,14 @@ page_init(void)
 	// NB: DO NOT actually touch the physical memory corresponding to
 	// free pages!
 	size_t i;
+
+	LIST_INIT(&page_free_list);
 	for (i = 0; i < npages; i++) {
+		if((i!=0)&&(PPN(IOPHYSMEM)>=i||i>=PPN(ROUNDUP(kern_pgdir+PGSIZE,PGSIZE)))){
 		pages[i].pp_ref = 0;
 		pages[i].pp_link = page_free_list;
 		page_free_list = &pages[i];
+			}
 	}
 }
 
