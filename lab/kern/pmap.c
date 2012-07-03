@@ -249,7 +249,7 @@ page_init(void)
 	// free pages!
 	size_t i;
 
-	LIST_INIT(&page_free_list);
+	page_free_list = NULL;
 	for (i = 0; i < npages; i++) {
 		if((i!=0)&&(PPN(IOPHYSMEM)>=i||i>=PPN(ROUNDUP(kern_pgdir+PGSIZE,PGSIZE)))){
 		pages[i].pp_ref = 0;
@@ -272,7 +272,17 @@ struct Page *
 page_alloc(int alloc_flags)
 {
 	// Fill this function in
-	return 0;
+	if (alloc_flags==0 && page_free_list!=null)
+	{
+		struct Page * temp_alloc_page = page_free_list;
+		if(page_free_list.pp_link!=NULL)
+			page_free_list=page_free_list.pp_link;
+		else 
+			page_free_list=NULL;
+		return temp_alloc_page;
+	}
+	else
+		return NULL;
 }
 
 //
@@ -283,6 +293,9 @@ void
 page_free(struct Page *pp)
 {
 	// Fill this function in
+	pp.pp_ref = 0;
+	pp.pp_link = page_free_list;
+	page_free_list = pp;
 }
 
 //
