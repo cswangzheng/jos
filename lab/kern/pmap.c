@@ -383,9 +383,6 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 			return pte;
 		}
 	}
-	
-	
-	
 	return NULL;
 }
 
@@ -403,14 +400,17 @@ static void
 boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)
 {
 	// Fill this function in
+	if(size%PGSIZE!=0)
+		panic(" Size must be a multiple of PGSIZE.");
 	pte_t *pte ;
-	size_t i;
-	for(i=0;i<size;i++)
+	size_t i=0;
+	while(i<size)
 	{
 		pte=pgdir_walk(pgdir, (void *)va, 1);
 		*pte= pa|perm|PTE_P;
 		pa+=PGSIZE;
 		va+=PGSIZE;
+		i+=PGSIZE;
 	}
 }
 
@@ -442,20 +442,23 @@ int
 page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
 {
 
-	pte_t * pte = pgdir_walk(pgdir, va, 1) ;
-	if (!pte)
+	pte_t * pte = pgdir_walk(pgdir, (void *)va, 1) ;
+	if (pte==NULL)
 		return -E_NO_MEM;
 	if (*pte & PTE_P) {
-		if (PTE_ADDR(*pte) == page2pa (pp)) {
-			tlb_invalidate (pgdir, va);
+		if (PTE_ADDR(*pte) == page2pa(pp))
+		{
+			tlb_invalidate(pgdir, va);
 			pp -> pp_ref --;
-			} else {
-		page_remove (pgdir, va);
+		} 
+		else 
+		{
+			page_remove (pgdir, va);
 		}
 	}
 
-	*pte = page2pa (pp)|perm|PTE_P;
-	pp->pp_ref++;
+	*pte = page2pa(pp)|perm|PTE_P;
+	pp->pp_ref++;//pp->pp_ref should be incremented if the insertion succeeds.
 	return 0;
 }
 
@@ -473,11 +476,17 @@ page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
 struct Page *
 page_lookup(pde_t *pgdir, void *va, pte_t **pte_store)
 {
-	pte_t *pte = pgdir_walk (pgdir, va, 0);
-	if (pte_store != 0) {
+	pte_t *pte = pgdir_walk(pgdir,(void *)va, 0);
+	if (pte==NULL)
+	{
+		return NULL;		
+	}
+	if (pte_store != 0) 
+	{
 		*pte_store = pte;
-		}
-	if (pte != NULL && (*pte & PTE_P)) {
+	}
+	if (*pte & PTE_P) 
+	{
 		return pa2page (PTE_ADDR (*pte));
 	}
 	return NULL;
@@ -502,12 +511,15 @@ void
 page_remove(pde_t *pgdir, void *va)
 {
 	pte_t *pte;
-	struct Page *physpage = page_lookup (pgdir, va, &pte);
-	if (physpage != NULL) {
-		page_decref (physpage);
-		*pte = 0;
-		tlb_invalidate (pgdir, va);
-}
+	struct Page *pp= page_lookup (pgdir, va, &pte);
+	if (pp != NULL) 
+	{
+		page_decref (pp);//- The ref count on the physical page should decrement.
+//   - The physical page should be freed if the refcount reaches 0.
+		if(pte!=NULL)
+		*pte = 0;// The pg table entry corresponding to 'va' should be set to 0. (if such a PTE exists)
+		tlb_invalidate (pgdir, va);//The TLB must be invalidated if you remove an entry from  the page table.
+	}
 }
 
 //

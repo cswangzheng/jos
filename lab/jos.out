@@ -14,6 +14,7 @@ SGABIOS $Id$ (pbonzini@yakj.usersys.redhat.com) Thu Nov  3 13:33:51 UTC 2011
 6828 decimal is 15254 octal!
 Physical memory: 66556K available, base = 640K, extended = 65532K
 check_page_alloc() succeeded!
-kernel panic at kern/pmap.c:803: assertion failed: check_va2pa(kern_pgdir, PGSIZE) == page2pa(pp2)
+check_page() succeeded!
+kernel panic at kern/pmap.c:698: assertion failed: check_va2pa(pgdir, UPAGES + i) == PADDR(pages) + i
 Welcome to the JOS kernel monitor!
 Type 'help' for a list of commands.
