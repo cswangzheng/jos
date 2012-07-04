@@ -299,7 +299,6 @@ page_alloc(int alloc_flags)
 	if ((alloc_flags==0 ||alloc_flags==ALLOC_ZERO)&& page_free_list!=NULL)
 	{
 		struct Page * temp_alloc_page = page_free_list;
-		temp_alloc_page->pp_ref=1;
 		if(page_free_list->pp_link!=NULL)
 			page_free_list=page_free_list->pp_link;
 		else 
@@ -320,7 +319,7 @@ void
 page_free(struct Page *pp)
 {
 	// Fill this function in
-	pp->pp_ref = 0;
+//	pp->pp_ref = 0;
 	pp->pp_link = page_free_list;
 	page_free_list = pp;
 }
@@ -378,6 +377,7 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 		pp=page_alloc(ALLOC_ZERO);
 		if (pp!=NULL)
 		{
+			pp->pp_ref=1;
 			*pde = page2pa(pp)|PTE_U|PTE_W|PTE_P ;
 			pte=(pte_t *)KADDR(PTE_ADDR(*pde))+PTX(va);
 			return pte;
