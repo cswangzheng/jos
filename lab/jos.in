@@ -1,3 +1,0 @@
-target remote localhost:26000
-br *0xf0101400
-c
