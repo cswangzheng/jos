@@ -289,7 +289,7 @@ Be able to answer the following questions:
 \begin{verbatim}
 1      if (crt_pos >= CRT_SIZE) {
 2              int i;
-3              memcpy(crt_buf, crt_buf + CRT_COLS, 
+3              memcpy(crt_buf, crt_buf + CRT_COLS,
                     (CRT_SIZE - CRT_COLS) * sizeof(uint16_t));
 4              for (i = CRT_SIZE - CRT_COLS; i < CRT_SIZE; i++)
 5                      crt_buf[i] = 0x0700 | ' ';
@@ -360,7 +360,7 @@ putch(int ch, int *cnt)
 if (crt_pos >= CRT_SIZE) {
 //光标位置（输出的字符）是否满屏幕
                 int i;
-                memmove(crt_buf, crt_buf + CRT_COLS, 
+                memmove(crt_buf, crt_buf + CRT_COLS,
                 (CRT_SIZE - CRT_COLS) * sizeof(uint16_t));
 //将所有行网上移动一行
                 for (i = CRT_SIZE - CRT_COLS; i < CRT_SIZE; i++)
@@ -401,12 +401,12 @@ f010104f:       8b 45 14                mov    0x14(%ebp),%eax和
 f01010f8:       0f be 55 d8             movsbl -0x28(%ebp),%edx
 设置断点
 得到：
-Breakpoint 1, vprintfmt (putch=0xf01008f0 <putch>, putdat=0xf010ffac, 
+Breakpoint 1, vprintfmt (putch=0xf01008f0 <putch>, putdat=0xf010ffac,
 fmt=0xf01019d2 "x %d, y %x, z %d\n", ap=0xf010ffe4 "\001")
-Breakpoint 1, vprintfmt (putch=0xf01008f0 <putch>, putdat=0xf010ffac, 
+Breakpoint 1, vprintfmt (putch=0xf01008f0 <putch>, putdat=0xf010ffac,
 fmt=0xf01019d2 "x %d, y %x, z %d\n", ap=0xf010ffe8 "\003")
     at lib/printfmt.c:227
-Breakpoint 1, vprintfmt (putch=0xf01008f0 <putch>, putdat=0xf010ffac, 
+Breakpoint 1, vprintfmt (putch=0xf01008f0 <putch>, putdat=0xf010ffac,
 fmt=0xf01019d2 "x %d, y %x, z %d\n", ap=0xf010ffec "\004")
 查看内存知道0xf010ffe4:	0x00000001	0x00000003	0x00000004	0x00000000
 所以va_arg是取esp+4的元素，随后ap再加4，如果是longlong则加8。
@@ -425,9 +425,9 @@ f010103f:       8b 45 14                mov    0x14(%ebp),%eax
 \end{verbatim}
 设置断点。
 \begin{verbatim}
-Breakpoint 1, vprintfmt (putch=0xf01008e0 <putch>, putdat=0xf010ffac, 
+Breakpoint 1, vprintfmt (putch=0xf01008e0 <putch>, putdat=0xf010ffac,
 fmt=0xf01019d2 "x=%d y=%d", ap=0xf010ffe4 "\003")
-Breakpoint 1, vprintfmt (putch=0xf01008e0 <putch>, putdat=0xf010ffac, 
+Breakpoint 1, vprintfmt (putch=0xf01008e0 <putch>, putdat=0xf010ffac,
 fmt=0xf01019d2 "x=%d y=%d", ap=0xf010ffe8 "`\006")
 \end{verbatim}
 显然ap的值在x之后增大了4，而这个位置的值是未知的。
@@ -544,21 +544,262 @@ cga_putc(int c)
 思想就是通过发现转义序列中的数字来改变char\_color的值，从而影响到输出的颜色。
 打印的代码为，放在init.c中。
 \begin{verbatim}
- cprintf("color test: \033[0;32;40m hello \033[0;36;41mworld\033[0;37;40m\n"); 
+ cprintf("color test: \033[0;32;40m hello \033[0;36;41mworld\033[0;37;40m\n");
 \end{verbatim}
 结果图所示。
 \begin{figure}
 \centering
-\includegraphics[width=4in,height=4in]{color.jpg}
+\includegraphics[width=5in]{color.jpg}
 \end{figure}
 
 \begin{framed}
 Exercise 9. Determine where the kernel initializes its stack, and exactly where in memory its stack is located. How does the kernel reserve space for its stack? And at which "end" of this reserved area is the stack pointer initialized to point to?
 \end{framed}
+内核栈的初始化在entry.S中:
+\begin{verbatim}
+# Clear the frame pointer register (EBP)
+# so that once we get into debugging C code,
+# stack backtraces will be terminated properly.
+movl	$0x0,%ebp			# nuke frame pointer
+# Set the stack pointer
+movl	$(bootstacktop),%esp
+\end{verbatim}
+意思就是ebp为0，esp为bootstacktop。
+Bootstacktop的定义为:
+\begin{verbatim}
+bootstack:
+	.space		KSTKSIZE
+	.globl		bootstacktop
+bootstacktop:
+\end{verbatim}
+启动栈有两部分构成，栈空间为KSTKSIZE，栈底就为 bootstacktop。KSTKSIZE 在 inc/memlayout.h 中定义为 32k。memlayout也规定了栈底的地址为 
+\begin{verbatim}
+VPT,KSTACKTOP--> +------------------------------+ 0xefc00000
+\end{verbatim}
+\begin{framed}
+Exercise 10. To become familiar with the C calling conventions on the x86, find the address of the test\_backtrace function inobj/kern/kernel.asm, set a breakpoint there, and examine what happens each time it gets called after the kernel starts. How many 32-bit words does each recursive nesting level of test\_backtrace push on the stack, and what are those words?
+Note that, for this exercise to work properly, you should be using the patched version of QEMU available on the tools page or on Athena. Otherwise, you'll have to manually translate all breakpoint and memory addresses to linear addresses.
+\end{framed}
+反汇编代码中test\_backtrace为
+\begin{verbatim}
+f0100040 <test_backtrace>:
+#include <kern/console.h>
 
+// Test the stack backtrace function (lab 1 only)
+void
+test_backtrace(int x)
+{
+f0100040:	55                   	push   %ebp
+f0100041:	89 e5                	mov    %esp,%ebp
+f0100043:	53                   	push   %ebx
+f0100044:	83 ec 14             	sub    $0x14,%esp
+f0100047:	8b 5d 08             	mov    0x8(%ebp),%ebx
+	cprintf("entering test_backtrace %d\n", x);
+f010004a:	89 5c 24 04          	mov    %ebx,0x4(%esp)
+f010004e:	c7 04 24 40 1a 10 f0 	movl   $0xf0101a40,(%esp)
+f0100055:	e8 cc 08 00 00       	call   f0100926 <cprintf>
+	if (x > 0)
+f010005a:	85 db                	test   %ebx,%ebx
+f010005c:	7e 0d                	jle    f010006b <test_backtrace+0x2b>
+		test_backtrace(x-1);
+f010005e:	8d 43 ff             	lea    -0x1(%ebx),%eax
+f0100061:	89 04 24             	mov    %eax,(%esp)
+f0100064:	e8 d7 ff ff ff       	call   f0100040 <test_backtrace>
+f0100069:	eb 1c                	jmp    f0100087 <test_backtrace+0x47>
+	else
+		mon_backtrace(0, 0, 0);
+f010006b:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%esp)
+f0100072:	00
+f0100073:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+f010007a:	00
+f010007b:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+f0100082:	e8 ff 06 00 00       	call   f0100786 <mon_backtrace>
+	cprintf("leaving test_backtrace %d\n", x);
+f0100087:	89 5c 24 04          	mov    %ebx,0x4(%esp)
+f010008b:	c7 04 24 5c 1a 10 f0 	movl   $0xf0101a5c,(%esp)
+f0100092:	e8 8f 08 00 00       	call   f0100926 <cprintf>
+}
+f0100097:	83 c4 14             	add    $0x14,%esp
+f010009a:	5b                   	pop    %ebx
+f010009b:	5d                   	pop    %ebp
+f010009c:	c3                   	ret
+
+\end{verbatim}
+首先\%ebp压栈，然后\%ebx被保存压栈，随后\%esp减去0x14，最后调用时	call   f0100926 <cprintf>，\%eip入栈，所以一共有8+20+4=32字节。
+经过调试发现，该函数从5到0依次递归。
+\begin{framed}
+Exercise 11. Implement the backtrace function as specified above. Use the same format as in the example, since otherwise the grading script will be confused. When you think you have it working right, run make grade to see if its output conforms to what our grading script expects, and fix it if it doesn't. After you have handed in your Lab 1 code, you are welcome to change the output format of the backtrace function any way you like.
+\end{framed}
+填充monitor.c中的mon\_backtrace
+需要完成的工作是对0-5进行回溯，打印ebp,eip和参数。
+read\_ebp 这个函数，这个函数的功能是:利用一些较低层的指令将当前 ebp寄存器中的值读出来，函数的返回值便是 ebp 的值。
+代码如下:
+\begin{verbatim}
+int
+mon_backtrace(int argc, char **argv, struct Trapframe *tf)
+{
+	// Your code here.
+	uint32_t ebp,eip,arg[5];
+	ebp = read_ebp();
+	eip = *((uint32_t*)ebp+1);
+	arg[0] = *((uint32_t*)ebp+2);
+	arg[1] = *((uint32_t*)ebp+3);
+	arg[2] = *((uint32_t*)ebp+4);
+	arg[3] = *((uint32_t*)ebp+5);
+	arg[4] = *((uint32_t*)ebp+6);
+
+	cprintf("Stack backtrace:\n");
+	
+	while(ebp != 0x00)
+		{
+			cprintf("ebp %08x eip %08x args %08x %08x %08x %08x %08x\n",
+ebp,eip,arg[0],arg[1],arg[2],arg[3],arg[4]);
+			ebp = *(uint32_t *)ebp;
+			eip = *((uint32_t*)ebp+1);
+			arg[0] = *((uint32_t*)ebp+2);
+			arg[1] = *((uint32_t*)ebp+3);
+			arg[2] = *((uint32_t*)ebp+4);
+			arg[3] = *((uint32_t*)ebp+5);
+			arg[4] = *((uint32_t*)ebp+6);
+			
+		}
+	return 0;
+}
+\end{verbatim}
+\begin{framed}
+Exercise 12. Modify your stack backtrace function to display, for each eip, the function name, source file name, and line number corresponding to that eip.
+In debuginf\_eip, where do \_\_STAB\_* come from? This question has a long answer; to help you to discover the answer, here are some things you might want to do:
+
+look in the file kern/kernel.ld for \_\_STAB\_*
+
+run i386-jos-elf-objdump -h obj/kern/kernel
+
+run i386-jos-elf-objdump -G obj/kern/kernel
+
+run i386-jos-elf-gcc -pipe -nostdinc -O2 -fno-builtin -I. -MD -Wall -Wno-format -DJOS\_KERNEL -gstabs -c -S kern/init.c, and look at init.s.
+
+see if the bootloader loads the symbol table in memory as part of loading the kernel binary
+Complete the implementation of debuginfo\_eip by inserting the call to stab\_binsearch to find the line number for an address.
+Add a backtrace command to the kernel monitor, and extend your implementation of mon\_backtrace to call debuginfo\_eip and print a line for each stack frame of the form:
+
+K $>$ backtrace
+Stack backtrace:
+
+  ebp f010ff78  eip f01008ae  args 00000001 f010ff8c 00000000 f0110580 00000000
+         kern/monitor.c:143: monitor+106
+         
+  ebp f010ffd8  eip f0100193  args 00000000 00001aac 00000660 00000000 00000000
+         kern/init.c:49: i386\_init+59
+         
+  ebp f010fff8  eip f010003d  args 00000000 00000000 0000ffff 10cf9a00 0000ffff
+         kern/entry.S:70: $<unknown>$+0
+         
+K $>$
+Each line gives the file name and line within that file of the stack frame's eip, followed by the name of the function and the offset of the eip from the first instruction of the function (e.g., monitor+106 means the return eip is 106 bytes past the beginning ofmonitor).
+Be sure to print the file and function names on a separate line, to avoid confusing the grading script.
+Tip: printf format strings provide an easy, albeit obscure, way to print non-null-terminated strings like those in STABS tables.printf("%.*s", length, string) prints at most length characters of string. Take a look at the printf man page to find out why this works.
+You may find that the some functions are missing from the backtrace. For example, you will probably see a call to monitor() but not to runcmd(). This is because the compiler in-lines some function calls. Other optimizations may cause you to see unexpected line numbers. If you get rid of the -O2 from GNUMakefile, the backtraces may make more sense (but your kernel will run more slowly).
+\end{framed}
+首先可以查看下命令objdump -G obj/kern/kernel显示到是什么，这里显示到有很多个元素，主要一共使用到的有三个n\_type，SO，FUN和SLINE，n\_value 当前表项对应的符号值，n\_desc 行号。一个例子如下：
+\begin{verbatim}
+0      SO     0      0      f0100000 1      {standard input}
+1      SOL    0      0      f010000c 18     kern/entry.S
+14     SO     0      2      f0100040 31     kern/entrypgdir.c
+67     SO     0      0      f0100040 0
+68     SO     0      2      f0100040 2775   kern/init.c
+144    SO     0      0      f01001a8 0
+145    SO     0      2      f01001b0 3058   kern/console.c
+\end{verbatim}
 
 \begin{verbatim}
+96     FUN    0      0      f0100040 2859   test_backtrace:F(0,18)
+106    FUN    0      0      f010009d 2900   i386_init:F(0,18)
+114    FUN    0      0      f0100104 2918   _panic:F(0,18)
+130    FUN    0      0      f0100163 3014   _warn:F(0,18)
+174    FUN    0      0      f01001b0 3100   delay:f(0,18)
+180    FUN    0      0      f01001be 3114   serial_proc_data:f(0,1)
+192    FUN    0      0      f01001da 3138   cons_intr:f(0,18)
+205    FUN    0      0      f0100217 3193   cons_putc:f(0,18)
+275    FUN    0      0      f01003fb 3229   kbd_proc_data:f(0,1)
+314    FUN    0      0      f01004fb 3275   serial_intr:F(0,18)
+319    FUN    0      0      f0100516 3295   kbd_intr:F(0,18)
+323    FUN    0      0      f0100528 3312   cons_getc:F(0,1)
+336    FUN    0      0      f010056b 3329   cons_init:F(0,18)
+377    FUN    0      0      f0100661 3376   cputchar:F(0,18)
+382    FUN    0      0      f0100671 3393   getchar:F(0,1)
+389    FUN    0      0      f0100682 3408   iscons:F(0,1)
+\end{verbatim}
+
+\begin{verbatim}
+346    SLINE  0      153    0000004d 0
+348    SLINE  0      98     00000053 0
+350    SLINE  0      154    0000005b 0
+352    SLINE  0      48     0000005e 0
+354    SLINE  0      154    00000061 0
+356    SLINE  0      98     00000067 0
+357    SLINE  0      48     0000006f 0
+359    SLINE  0      158    00000072 0
+360    SLINE  0      156    00000078 0
+361    SLINE  0      159    0000007d 0
+363    SLINE  0      98     00000084 0
+364    SLINE  0      48     000000c6 0
+366    SLINE  0      101    000000c9 0
+368    SLINE  0      48     000000d8 0
+370    SLINE  0      449    000000de 0
+371    SLINE  0      450    000000e2 0
+372    SLINE  0      451    000000ee 0
+379    SLINE  0      458    00000000 0
+\end{verbatim}
+显然可以利用SO寻找所属文件，FUN寻找所属到函数，SLINE寻找行数。在debuginfo\_eip中实现这些功能，基本思路就是寻找和eip值最接近的较小的n\_value值，这种寻找是二分查找实现的。
+所以填充ebuginfo\_eip很简单：
+\begin{verbatim}
+// Your code here.
+	stab_binsearch(stabs, &lline, &rline, N_SLINE, addr);
+	
+	if (lline <= rline) {
+	info->eip_line = stabs[lline].n_desc;
+	}
+\end{verbatim}
+由于这些值都返回在info结构体中，所以在monitor中加入如下功能：
+\begin{verbatim}
+struct Eipdebuginfo info;
+			info.eip_file = "<unknown>";
+			info.eip_line = 0;
+			info.eip_fn_name = "<unknown>";
+			info.eip_fn_namelen = 9;
+			info.eip_fn_addr = eip;
+			info.eip_fn_narg = 0;
+			char display_eip_fn_name[30];
+			debuginfo_eip(eip,&info);
+			int i;
+			for ( i=0;(info.eip_fn_name[i]!=':')&&( i<30); i++)
+				display_eip_fn_name[i]=info.eip_fn_name[i];
+			display_eip_fn_name[i]='\0';
+			cprintf("    %s:%d: %s+%d\n",info.eip_file,info.eip_line,
+display_eip_fn_name,(eip-info.eip_fn_addr));
+\end{verbatim}
+由于最后到加号后面是返回指令相对与函数开始时的差，所以可以 eip-info.eip\_fn\_addr实现。另外i386\_init:F(0,18)
+与要求的i386\_init:不一样所以去掉冒号后面到内容。
+
+最后加入新的命令：
+\begin{verbatim}
+	{ "backtrce", "Display the backtarce of the stack", mon_backtrace},
 \end{verbatim}
 
 
-\end{document}
+至此实验一完成。
+
+
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{lab1finish.jpg}\\
+\end{figure}
+
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{grade1.jpg}\\
+\end{figure}
+
+
+
+\end{document} 
