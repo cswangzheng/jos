@@ -170,12 +170,7 @@ mem_init(void)
 	//    - pages itself -- kernel RW, user NONE
 	// Your code goes here:
 
-boot_map_region(
-kern_pgdir,
-UPAGES,
-ROUNDUP (npages * sizeof (struct Page), PGSIZE),
-PADDR ((uintptr_t *) pages), // PADDR returns a (void*)
-PTE_U);
+	boot_map_region(kern_pgdir,UPAGES,ROUNDUP (npages * sizeof (struct Page), PGSIZE),PADDR ((uintptr_t *) pages), PTE_U);
 	//////////////////////////////////////////////////////////////////////
 	// Use the physical memory that 'bootstack' refers to as the kernel
 	// stack.  The kernel stack grows down from virtual address KSTACKTOP.
@@ -187,12 +182,7 @@ PTE_U);
 	//       overwrite memory.  Known as a "guard page".
 	//     Permissions: kernel RW, user NONE
 	// Your code goes here:
-boot_map_region (
-kern_pgdir,
-KSTACKTOP - KSTKSIZE,
-KSTKSIZE, // 8 * PGSIZE
-PADDR ((uintptr_t *) bootstack),
-PTE_W);
+	boot_map_region (kern_pgdir,KSTACKTOP - KSTKSIZE,KSTKSIZE,PADDR ((uintptr_t *) bootstack),PTE_W);
 	//////////////////////////////////////////////////////////////////////
 	// Map all of physical memory at KERNBASE.
 	// Ie.  the VA range [KERNBASE, 2^32) should map to
@@ -202,13 +192,7 @@ PTE_W);
 	// Permissions: kernel RW, user NONE
 	// Your code goes here:
 
-boot_map_region (
-kern_pgdir,
-KERNBASE,
- ~KERNBASE + 1,
-// 2\u02c632 - KERNBASE = (2 \u02c6 32 - 1 - KERNBASE) + 1 =  \u0303KERNBASE + 1
-(physaddr_t) 0,
-PTE_W);
+	boot_map_region (kern_pgdir,KERNBASE,~KERNBASE + 1,(physaddr_t) 0,PTE_W);
 	// Check that the initial page directory has been set up correctly.
 	check_kern_pgdir();
 
