@@ -15,6 +15,7 @@ SGABIOS $Id$ (pbonzini@yakj.usersys.redhat.com) Thu Nov  3 13:33:51 UTC 2011
 Physical memory: 66556K available, base = 640K, extended = 65532K
 check_page_alloc() succeeded!
 check_page() succeeded!
-kernel panic at kern/pmap.c:698: assertion failed: check_va2pa(pgdir, UPAGES + i) == PADDR(pages) + i
+check_kern_pgdir() succeeded!
+check_page_installed_pgdir() succeeded!
 Welcome to the JOS kernel monitor!
 Type 'help' for a list of commands.
