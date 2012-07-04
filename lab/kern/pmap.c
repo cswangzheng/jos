@@ -169,12 +169,6 @@ mem_init(void)
 	//      (ie. perm = PTE_U | PTE_P)
 	//    - pages itself -- kernel RW, user NONE
 	// Your code goes here:
-boot_map_region(
-kern_pgdir,
-UPAGES,
-ROUNDUP (npages * sizeof (struct Page), PGSIZE),
-PADDR ((uintptr_t *) pages), // PADDR returns a (void*)
-PTE_U);
 
 	//////////////////////////////////////////////////////////////////////
 	// Use the physical memory that 'bootstack' refers to as the kernel
@@ -187,12 +181,6 @@ PTE_U);
 	//       overwrite memory.  Known as a "guard page".
 	//     Permissions: kernel RW, user NONE
 	// Your code goes here:
-boot_map_region (
-kern_pgdir,
-KSTACKTOP - KSTKSIZE,
-KSTKSIZE, // 8 * PGSIZE
-PADDR ((uintptr_t *) bootstack),
-PTE_W);
 
 	//////////////////////////////////////////////////////////////////////
 	// Map all of physical memory at KERNBASE.
@@ -202,14 +190,6 @@ PTE_W);
 	// we just set up the mapping anyway.
 	// Permissions: kernel RW, user NONE
 	// Your code goes here:
-boot_map_region (
-kern_pgdir,
-KERNBASE,
- ~KERNBASE + 1,
-// 2\u02c632 - KERNBASE = (2 \u02c6 32 - 1 - KERNBASE) + 1 =  \u0303KERNBASE + 1
-(physaddr_t) 0,
-PTE_W);
-
 
 	// Check that the initial page directory has been set up correctly.
 	check_kern_pgdir();
@@ -324,8 +304,8 @@ page_alloc(int alloc_flags)
 			page_free_list=page_free_list->pp_link;
 		else 
 			page_free_list=NULL;
-	if(alloc_flags==ALLOC_ZERO)
-		memset(page2kva(temp_alloc_page), 0, PGSIZE);
+		if(alloc_flags==ALLOC_ZERO)
+			memset(page2kva(temp_alloc_page), 0, PGSIZE);
 		return temp_alloc_page;
 	}
 	else
@@ -382,26 +362,25 @@ pte_t *
 pgdir_walk(pde_t *pgdir, const void *va, int create)
 {
 	// Fill this function in
-	pde_t pde;//page directory entry,
-	pte_t pte;//page table entry
-	pde=pgdir[PDX(va)];//get the entry of pde
+	pde_t *pde;//page directory entry,
+	pte_t *pte;//page table entry
+	pde=(pde_t *)pgdir+PDX(va);//get the entry of pde
 
-	if (pde & PTE_P)//the address exists
+	if (*pde & PTE_P)//the address exists
 	{
-		pte=PTE_ADDR(pde)+PTX(va);
-		return (pte_t *)KADDR(pte);
+		pte=(pte_t *)KADDR(PTE_ADDR(*pde))+PTX(va);
+		return pte;
 	}
 	//the page does not exist
-	if (create )//create a new item 
+	if (create )//create a new page table 
 	{	
 		struct Page *pp;
 		pp=page_alloc(ALLOC_ZERO);
 		if (pp!=NULL)
-		{	
-			pde = PADDR(page2kva(pp))|PTE_U|PTE_W |PTE_P ;
-			pgdir[PDX(va)] = pde;
-			pte=PTE_ADDR(pde)+PTX(va);
-			return (pte_t *)KADDR(pte);
+		{
+			*pde = page2pa(pp)|PTE_U|PTE_W|PTE_P ;
+			pte=(pte_t *)KADDR(PTE_ADDR(*pde))+PTX(va);
+			return pte;
 		}
 	}
 	
@@ -476,7 +455,7 @@ page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
 	}
 
 	*pte = page2pa (pp)|perm|PTE_P;
-
+	pp->pp_ref++;
 	return 0;
 }
 
@@ -940,3 +919,24 @@ check_page_installed_pgdir(void)
 
 	cprintf("check_page_installed_pgdir() succeeded!\n");
 }
+/* See COPYRIGHT for copyright information. */
+
+#include <inc/x86.h>
+#include <inc/mmu.h>
+#include <inc/error.h>
+#include <inc/string.h>
+#include <inc/assert.h>
+
+#include <kern/pmap.h>
+#include <kern/kclock.h>
+
+// These variables are set by i386_detect_memory()
+size_t npages;			// Amount of physical memory (in pages)
+static size_t npages_basemem;	// Amount of base memory (in pages)
+
+// These variables are set in mem_init()
+pde_t *kern_pgdir;		// Kernel's initial page directory
+struct Page *pages;		// Physical page state array
+static struct Page *page_free_list;	// Free list of physical pages
+
+
