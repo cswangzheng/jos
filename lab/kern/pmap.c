@@ -451,7 +451,8 @@ page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
 //-E_NO_MEM, if page table couldn't be allocated
 	if (*pte & PTE_P) {
 		if (PTE_ADDR(*pte) == page2pa(pp))
-		{
+		{	
+			pp->pp_ref--;
 			tlb_invalidate(pgdir, va);
 //The TLB must be invalidated if a page was formerly present at 'va'.
 		} 
@@ -463,8 +464,7 @@ page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
 	}
 
 	*pte = page2pa(pp)|perm|PTE_P;
-	if (!(*pte&PTE_P&PTE_ADDR(*pte) == page2pa(pp)))	
-		pp->pp_ref++;
+	pp->pp_ref++;
 //pp->pp_ref should be incremented if the insertion succeeds.
 	return 0;
 //0 on success
