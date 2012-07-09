@@ -53,7 +53,7 @@ Merge made by recursive.
  4 files changed, 82 insertions(+), 7 deletions(-)
 \end{lstlisting}
 
-在合并的过程中发现，因为自己曾经修改过kern/init.c 增加了彩色打印的功能， 
+在合并的过程中发现，因为自己曾经修改过kern/init.c 增加了彩色打印的功能，
 \begin{verbatim}
 cprintf("color test: \033[0;32;40m hello \033[0;36;41mworld\033[0;37;40m\n");
 \end{verbatim}
@@ -109,5 +109,317 @@ struct Page {
 	//cprintf("\nnextfree:0x%08x",nextfree);
 	return result;
 \end{verbatim}
-所做的添加如上，这里result是分配的内存起始位置，nextfree是下一块空闲区域开始的地方。这里的地址都是物理地址。
+所做的添加如上，这里result是分配的内存起始位置，nextfree是下一块空闲区域开始的地方。这里的地址都不是是物理地址，而是虚拟地址，返回的
+是指向该虚拟地址的指针。
+
+page\_init()是对页面链表进行初始化。初始化的方法是，设定page\_free\_list指向空闲链表的表头。这里需要处理下不可使用的内存空间，令他们的pp\_ref=1。不可使用的内存空间共有两种情况。1是页表0，2是从 IOPHYSMEM到上面所说的页面链表分配位置的结束处。具体的实现如下：
+\begin{verbatim}
+	size_t i;
+	//size_t a=0;
+	//size_t b=0;
+	//size_t c=0;
+	page_free_list = NULL;
+	physaddr_t pgnum_IOPHYSMEM = PGNUM (IOPHYSMEM);
+	physaddr_t pgnum_EXTPHYSMEM =PGNUM ( PADDR 
+(ROUNDUP(pages+npages* sizeof (struct Page),PGSIZE)));
+	//PGNUM (ROUNDUP(pages+npages* sizeof 
+//(struct Page),PGSIZE))-PGNUM(kern_pgdir)+PGNUM(EXTPHYSMEM);
+	for (i = 1; i < npages; i++)
+	{
+		
+		
+		if(i<pgnum_IOPHYSMEM)
+		{
+			pages[i].pp_ref = 0;
+			pages[i].pp_link = page_free_list;
+			page_free_list = &pages[i];
+			//a++;
+		}
+		else if( i>pgnum_EXTPHYSMEM)
+		{
+			pages[i].pp_ref = 0;
+			pages[i].pp_link = page_free_list;
+			page_free_list = &pages[i];
+			//b++;
+		}
+		else
+		{
+			pages[i].pp_ref = 1;
+			//c++;
+		}
+	}
+\end{verbatim}
+这里实现之前犯了一个错误，就是直接将ROUNDUP(pages+npages* sizeof (struct Page),PGSIZE))的逻辑地址取页表号的操作，这样的话页表号就会很大，导致断言assert(nfree\_extmem $>$ 0);报错，也就是在大于已分配空间没有了空闲地址。所以实际上要取物理页号的操作。也就是将该地址减去KERNBASE	 0xF0000000。减去之后可以使得断言通过。之后特别的用physaddr\_t来强调一下这里指的是实际地址页号。page\_init()基本完成。
+
+page\_alloc()是分配页表的过程，简而言之就是从 page\_free\_list取出一个节点，将其对应的页表分配出去，并且空闲列表中删除出去。具体实现很简单：
+\begin{verbatim}
+struct Page *
+page_alloc(int alloc_flags)
+{
+	// Fill this function in
+	if ((alloc_flags==0 ||alloc_flags==ALLOC_ZERO)
+&& page_free_list!=NULL)
+	{
+		struct Page * temp_alloc_page = page_free_list;
+		if(page_free_list->pp_link!=NULL)
+			page_free_list=page_free_list->pp_link;
+		else
+			page_free_list=NULL;
+	if(alloc_flags==ALLOC_ZERO)
+		memset(page2kva(temp_alloc_page), 0, PGSIZE);
+		return temp_alloc_page;
+	}
+	else
+		return NULL;
+}
+\end{verbatim}
+这里也遇到了一个问题是对 alloc\_flags的定义不明确，查看断言之后估计 ALLOC\_ZERO是清空内存为0的操作，所以就memset 分配的页为0.而且注意的一点是这里memset是对temp\_alloc\_page代表的那一页清空。所以需要找出temp\_alloc\_page代表的那页的虚拟地址。用page2kva
+即可实现。
+
+page\_free()就是将一个页表节点再放回空闲列表中。再将该节点的pp\_ref设置为0即可。
+\begin{verbatim}
+void
+page_free(struct Page *pp)
+{
+	// Fill this function in
+	pp->pp_ref = 0;
+	pp->pp_link = page_free_list;
+	page_free_list = pp;
+}
+\end{verbatim}
+经过如上的修改之后，运行结果如下：
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{lab2firstOK.JPG}\\
+\end{figure}
+
+\section{虚拟存储}
+\begin{framed}
+Exercise 2. Look at chapters 5 and 6 of the Intel 80386 Reference Manual, if you haven't done so already. Read the sections about page translation and page-based protection closely (5.2 and 6.4). We recommend that you also skim the sections about segmentation; while JOS uses paging for virtual memory and protection, segment translation and segment-based protection cannot be disabled on the x86, so you will need a basic understanding of it.
+\end{framed}
+由于之前看过深入理解Linux内核的部分内容，所以对内存管理这块还是有些熟悉的。
+\begin{framed}
+Exercise 3. While GDB can only access QEMU's memory by virtual address, it's often useful to be able to inspect physical memory while setting up virtual memory. Review the QEMU monitor commands from the lab tools guide, especially the xp command, which lets you inspect physical memory. To access the QEMU monitor, press Ctrl-a c in the terminal (the same binding returns to the serial console).
+Use the xp command in the QEMU monitor and the x command in GDB to inspect memory at corresponding physical and virtual addresses and make sure you see the same data.
+Our patched version of QEMU provides an info pg command that may also prove useful: it shows a compact but detailed representation of the current page tables, including all mapped memory ranges, permissions, and flags. Stock QEMU also provides an info mem command that shows an overview of which ranges of virtual memory are mapped and with what permissions.
+
+Question
+1.Assuming that the following JOS kernel code is correct, what type should variable x have, uintptr\_t or physaddr\_t?
+\begin{verbatim}
+mystery_t x;
+char* value = return_a_pointer();
+*value = 10;
+x = (mystery_t) value;
+\end{verbatim}
+\end{framed}
+内核中的操作都在虚地址下完成，所以该操作也是 uintptr\_t。
+
+\begin{framed}
+Exercise 4. In the file kern/pmap.c, you must implement code for the following functions.
+\begin{verbatim}
+        pgdir_walk()
+        boot_map_region()
+        page_lookup()
+        page_remove()
+        page_insert()
+\end{verbatim}
+check\_page(), called from mem\_init(), tests your page table management routines. You should make sure it reports success before proceeding.
+\end{framed}
+页面转换的示意图如图所示：
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{Lineradd.JPG}\\
+\end{figure}
+这里pgdir\_walk()完成的过程是针对输入的线性地址va,a返回一个指针指向页表项。这就需要走完二级页表。也就是上图中的Table中的表项。
+这里开始时产生了误解，以为是如果没有的话就产生一个新的物理页，这里发现如果不存在的话是新产生一个新的二级Table。
+该函数的具体实现如下：
+\begin{verbatim}
+pte_t *
+pgdir_walk(pde_t *pgdir, const void *va, int create)
+{
+	// Fill this function in
+	pde_t *pde;//page directory entry,
+	pte_t *pte;//page table entry
+	pde=(pde_t *)pgdir+PDX(va);//get the entry of pde
+
+	if (*pde & PTE_P)//the address exists
+	{
+		pte=(pte_t *)KADDR(PTE_ADDR(*pde))+PTX(va);
+//point to the virtual address of PTE
+		return pte;
+	}
+	//the page does not exist
+	if (create )//create a new page table
+	{	
+		struct Page *pp;
+		pp=page_alloc(ALLOC_ZERO);
+		if (pp!=NULL)
+		{
+			pp->pp_ref=1;
+			*pde = page2pa(pp)|PTE_U|PTE_W|PTE_P ;
+			pte=(pte_t *)KADDR(PTE_ADDR(*pde))+PTX(va);
+			return pte;
+		}
+	}
+	return NULL;
+}
+\end{verbatim}
+需要注意的是，这里页表中的项指向的都是虚拟地址。但是页表项中储存的内容都是实际的页的编号加上一些控制位。
+控制位的选择是在pde表项中给予最多的权限，也就是Hint 2中的内容。
+\begin{itemize}
+\item P  -- Present，该位用来判断对应物理页面是否存在，如果存在，该位置 1，否则为 0；
+\item R/W  -- Read/Write，该位用来判断对所指向的物理页面的访问权限，如果为 1，表
+示页面可写，否则，是只读页面；
+\item U/S  -- User/Supervisor，该位用来定义页面的访问者应该具备的权限。如果为 1，表
+示该页面是 User权限的，大家都可以访问，如果为 0，表示只能是 Ring0 中的程序能访问；
+\end{itemize}
+
+boot\_map\_region()
+作用是将虚拟地址[va, va+size)映射到物理地址[pa, pa+size)。这里的size要求是页表大小的整数倍，否则就向上取整。该函数基本也就是一段物理地址空间初始化映射到page table中的过程。
+\begin{verbatim}
+static void
+boot_map_region(pde_t *pgdir, uintptr_t va, 
+size_t size, physaddr_t pa, int perm)
+{
+	// Fill this function in
+	if(size%PGSIZE!=0)
+		size=ROUNDUP(size,PGSIZE);//panic(" Size must be a multiple of PGSIZE.");
+	pte_t *pte ;
+	size_t i=0;
+	while(i<size)
+	{
+		pte=pgdir_walk(pgdir, (void *)va, 1);
+		*pte= pa|perm|PTE_P;
+		pa+=PGSIZE;
+		va+=PGSIZE;
+		i+=PGSIZE;
+	}
+}
+\end{verbatim}
+
+page\_lookup()是返回一个虚拟地址va所对应的页，也就是这个页对应在链表中的地址。并且将这个页储存在store中。
+\begin{verbatim}
+struct Page *
+page_lookup(pde_t *pgdir, void *va, pte_t **pte_store)
+{
+	pte_t *pte = pgdir_walk(pgdir,(void *)va, 0);
+	if (pte==NULL)
+	{
+		return NULL;		
+	}
+	if (pte_store != 0)
+	{
+		*pte_store = pte;
+	}
+	if (*pte & PTE_P)
+	{
+		return pa2page (PTE_ADDR (*pte));
+	}
+	return NULL;
+}
+\end{verbatim}
+
+page\_remove()也就是取消va对某个物理地址的映射。
+\begin{verbatim}
+void
+page_remove(pde_t *pgdir, void *va)
+{
+	pte_t *pte;
+	struct Page *pp；
+    pp=page_lookup (pgdir, va, &pte);
+	if (pp != NULL)
+	{
+		page_decref (pp);
+//- The ref count on the physical page should decrement.
+//- The physical page should be freed if the refcount reaches 0.
+		if(pte!=NULL)
+		*pte = 0;
+// The pg table entry corresponding to 'va' should be set to 0. (if such a PTE exists)
+		tlb_invalidate (pgdir, va);
+//The TLB must be invalidated if you remove an entry from  the page table.
+	}
+}
+\end{verbatim}
+
+page\_insert()将虚拟地址va映射到物理地址上。
+\begin{verbatim}
+int
+page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
+{
+
+	pte_t * pte = pgdir_walk(pgdir, (void *)va, 1) ;
+//   - If necessary, on demand, a page table should be allocated and inserted
+//     into 'pgdir'.
+	if (pte==NULL)
+		return -E_NO_MEM;
+//-E_NO_MEM, if page table couldn't be allocated
+	if (*pte & PTE_P) {
+		if (PTE_ADDR(*pte) == page2pa(pp))
+		{
+			tlb_invalidate(pgdir, va);
+//The TLB must be invalidated if a page was formerly present at 'va'.
+		}
+		else
+		{
+			page_remove (pgdir, va);
+//If there is already a page mapped at 'va', it should be page_remove()d.
+		}
+	}
+
+	*pte = page2pa(pp)|perm|PTE_P;
+	if (!(*pte&PTE_P&PTE_ADDR(*pte) == page2pa(pp)))	
+		pp->pp_ref++;
+//pp->pp_ref should be incremented if the insertion succeeds.
+	return 0;
+//0 on success
+}
+\end{verbatim}
+这里的映射一共有三种情况。
+\begin{itemize}
+\item 原先的pte有效，就是该页，删除tlb的值，并且修改该pte的值为此页即可；
+\item 原先的pte有效，不是该页，删除映射，并且修改该pte的值为此页即可；
+\item 原先的pte表项无效，这样直接修改该pte的值为此页即可；
+\end{itemize}
+
+\section{内核地址空间}
+\begin{framed}
+Exercise 5. Fill in the missing code in mem\_init() after the call to check\_page().
+Your code should now pass the check\_kern\_pgdir() and check\_page\_installed\_pgdir() checks.
+\end{framed}
+该练习也就是将内核的一部分空间初始化。设置UTOP以上部分的地址空间。这里的三个设置都有很明显的注释。按照注释的要求调用函数即可。
+\begin{verbatim}
+//////////////////////////////////////////////////////////////////////
+	// Map 'pages' read-only by the user at linear address UPAGES
+	// Permissions:
+	//    - the new image at UPAGES -- kernel R, user R
+	//      (ie. perm = PTE_U | PTE_P)
+	//    - pages itself -- kernel RW, user NONE
+	// Your code goes here:
+
+	boot_map_region(kern_pgdir,UPAGES,npages * sizeof (struct Page),
+PADDR ((uintptr_t *) pages), PTE_U);
+	//////////////////////////////////////////////////////////////////////
+	// Use the physical memory that 'bootstack' refers to as the kernel
+	// stack.  The kernel stack grows down from virtual address KSTACKTOP.
+	// We consider the entire range from [KSTACKTOP-PTSIZE, KSTACKTOP)
+	// to be the kernel stack, but break this into two pieces:
+	//     * [KSTACKTOP-KSTKSIZE, KSTACKTOP) -- backed by physical memory
+	//     * [KSTACKTOP-PTSIZE, KSTACKTOP-KSTKSIZE) -- not backed; so if
+	//       the kernel overflows its stack, it will fault rather than
+	//       overwrite memory.  Known as a "guard page".
+	//     Permissions: kernel RW, user NONE
+	// Your code goes here:
+	boot_map_region (kern_pgdir,KSTACKTOP - KSTKSIZE,KSTKSIZE,
+PADDR((uintptr_t *)bootstack),PTE_W);
+	//////////////////////////////////////////////////////////////////////
+	// Map all of physical memory at KERNBASE.
+	// Ie.  the VA range [KERNBASE, 2^32) should map to
+	//      the PA range [0, 2^32 - KERNBASE)
+	// We might not have 2^32 - KERNBASE bytes of physical memory, but
+	// we just set up the mapping anyway.
+	// Permissions: kernel RW, user NONE
+	// Your code goes here:
+	boot_map_region (kern_pgdir,KERNBASE,0xffffffff-KERNBASE+1,(
+physaddr_t) 0,PTE_W);
+\end{verbatim}
 \end{document} 

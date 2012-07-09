@@ -444,23 +444,30 @@ page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)
 {
 
 	pte_t * pte = pgdir_walk(pgdir, (void *)va, 1) ;
+//   - If necessary, on demand, a page table should be allocated and inserted
+//     into 'pgdir'.
 	if (pte==NULL)
 		return -E_NO_MEM;
+//-E_NO_MEM, if page table couldn't be allocated
 	if (*pte & PTE_P) {
 		if (PTE_ADDR(*pte) == page2pa(pp))
 		{
 			tlb_invalidate(pgdir, va);
-			pp -> pp_ref --;
+//The TLB must be invalidated if a page was formerly present at 'va'.
 		} 
 		else 
 		{
 			page_remove (pgdir, va);
+//If there is already a page mapped at 'va', it should be page_remove()d.
 		}
 	}
 
 	*pte = page2pa(pp)|perm|PTE_P;
-	pp->pp_ref++;//pp->pp_ref should be incremented if the insertion succeeds.
+	if (!(*pte&PTE_P&PTE_ADDR(*pte) == page2pa(pp)))	
+		pp->pp_ref++;
+//pp->pp_ref should be incremented if the insertion succeeds.
 	return 0;
+//0 on success
 }
 
 //
@@ -512,7 +519,8 @@ void
 page_remove(pde_t *pgdir, void *va)
 {
 	pte_t *pte;
-	struct Page *pp= page_lookup (pgdir, va, &pte);
+	struct Page *pp;
+    	pp=page_lookup (pgdir, va, &pte);
 	if (pp != NULL) 
 	{
 		page_decref (pp);//- The ref count on the physical page should decrement.
