@@ -202,17 +202,7 @@ Exercise 2. Look at chapters 5 and 6 of the Intel 80386 Reference Manual, if you
 Exercise 3. While GDB can only access QEMU's memory by virtual address, it's often useful to be able to inspect physical memory while setting up virtual memory. Review the QEMU monitor commands from the lab tools guide, especially the xp command, which lets you inspect physical memory. To access the QEMU monitor, press Ctrl-a c in the terminal (the same binding returns to the serial console).
 Use the xp command in the QEMU monitor and the x command in GDB to inspect memory at corresponding physical and virtual addresses and make sure you see the same data.
 Our patched version of QEMU provides an info pg command that may also prove useful: it shows a compact but detailed representation of the current page tables, including all mapped memory ranges, permissions, and flags. Stock QEMU also provides an info mem command that shows an overview of which ranges of virtual memory are mapped and with what permissions.
-
-Question
-1.Assuming that the following JOS kernel code is correct, what type should variable x have, uintptr\_t or physaddr\_t?
-\begin{verbatim}
-mystery_t x;
-char* value = return_a_pointer();
-*value = 10;
-x = (mystery_t) value;
-\end{verbatim}
 \end{framed}
-内核中的操作都在虚地址下完成，所以该操作也是 uintptr\_t。
 
 \begin{framed}
 Exercise 4. In the file kern/pmap.c, you must implement code for the following functions.
@@ -422,4 +412,33 @@ PADDR((uintptr_t *)bootstack),PTE_W);
 	boot_map_region (kern_pgdir,KERNBASE,0xffffffff-KERNBASE+1,(
 physaddr_t) 0,PTE_W);
 \end{verbatim}
+
+Question:
+\begin{enumerate}
+\item 
+Assuming that the following JOS kernel code is correct, what type should variable x have, uintptr\_t or physaddr\_t?
+\begin{verbatim}
+mystery_t x;
+char* value = return_a_pointer();
+*value = 10;
+x = (mystery_t) value;
+\end{verbatim}
+内核中的操作都在虚地址下完成，所以该操作也是 uintptr\_t。
+
+\item
+What entries (rows) in the page directory have been filled in at this point? What addresses do they map and where do they point? In other words, fill out this table as much as possible:
+
+\begin{tabular}{rlcrrrcc}
+Entry	&Base Virtual Address&	Points to (logically):\\
+1023	&?	&Page table for top 4MB of phys memory\\
+1022	&?	&?\\
+.	&?	&?\\
+.	&?	&?\\
+.	&?	&?\\
+2	&0x00800000	&?\\
+1	&0x00400000	&?\\
+0	&0x00000000	&[see next question]\\
+
+\end{tabular}
+\end{enumerate}
 \end{document} 
