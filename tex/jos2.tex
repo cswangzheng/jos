@@ -447,8 +447,13 @@ Entry	&Base Virtual Address&	Points to (logically):\\
 \item
 What is the maximum amount of physical memory that this operating system can support? Why?
 
+最多支持4G的物理内存，32位系统最多支持4G的物理内存，超过4G的内存无法寻址。
+
 \item
 How much space overhead is there for managing memory, if we actually had the maximum amount of physical memory? How is this overhead broken down?
+
+一共有一个页目录，npages* sizeof (struct Page)/PGSIZE个页表。而npages是实际系统的内存中的页数。如果是最大物理内存，4G，则有1025*4k的空间用来管理内存。降低额外空间的方法
+是使用扩展分页技术，也就是采用4M的页大小。
 
 \item
 Revisit the page table setup in kern/entry.S and kern/entrypgdir.c. Immediately after we turn on paging, EIP is still a low number (a little over 1MB). At what point do we transition to running at an EIP above KERNBASE? What makes it possible for us to continue executing at a low EIP between when we enable paging and when we begin running at an EIP above KERNBASE? Why is this transition necessary?
