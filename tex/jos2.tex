@@ -387,7 +387,7 @@ Your code should now pass the check\_kern\_pgdir() and check\_page\_installed\_p
 	// Your code goes here:
 
 	boot_map_region(kern_pgdir,UPAGES,npages * sizeof (struct Page),
-PADDR ((uintptr_t *) pages), PTE_U|PTE_P);
+PADDR (pages), PTE_U|PTE_P);
 	//////////////////////////////////////////////////////////////////////
 	// Use the physical memory that 'bootstack' refers to as the kernel
 	// stack.  The kernel stack grows down from virtual address KSTACKTOP.
@@ -400,7 +400,7 @@ PADDR ((uintptr_t *) pages), PTE_U|PTE_P);
 	//     Permissions: kernel RW, user NONE
 	// Your code goes here:
 	boot_map_region (kern_pgdir,KSTACKTOP - KSTKSIZE,KSTKSIZE,
-PADDR((uintptr_t *)bootstack),PTE_W|PTE_P);
+PADDR(bootstack),PTE_W|PTE_P);
 	//////////////////////////////////////////////////////////////////////
 	// Map all of physical memory at KERNBASE.
 	// Ie.  the VA range [KERNBASE, 2^32) should map to
@@ -409,8 +409,7 @@ PADDR((uintptr_t *)bootstack),PTE_W|PTE_P);
 	// we just set up the mapping anyway.
 	// Permissions: kernel RW, user NONE
 	// Your code goes here:
-	boot_map_region (kern_pgdir,KERNBASE,0xffffffff-KERNBASE+1,(
-physaddr_t) 0,PTE_W|PTE_P);
+	boot_map_region (kern_pgdir,KERNBASE,0xffffffff-KERNBASE+1,0,PTE_W|PTE_P);
 \end{verbatim}
 
 Question:

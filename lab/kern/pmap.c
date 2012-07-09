@@ -170,7 +170,7 @@ mem_init(void)
 	//    - pages itself -- kernel RW, user NONE
 	// Your code goes here:
 
-	boot_map_region(kern_pgdir,UPAGES,npages * sizeof (struct Page),PADDR ((uintptr_t *) pages), PTE_U| PTE_P);
+	boot_map_region(kern_pgdir,UPAGES,npages * sizeof (struct Page),PADDR (pages), PTE_U| PTE_P);
 	//////////////////////////////////////////////////////////////////////
 	// Use the physical memory that 'bootstack' refers to as the kernel
 	// stack.  The kernel stack grows down from virtual address KSTACKTOP.
@@ -182,7 +182,7 @@ mem_init(void)
 	//       overwrite memory.  Known as a "guard page".
 	//     Permissions: kernel RW, user NONE
 	// Your code goes here:
-	boot_map_region (kern_pgdir,KSTACKTOP - KSTKSIZE,KSTKSIZE,PADDR((uintptr_t *)bootstack),PTE_W| PTE_P);
+	boot_map_region (kern_pgdir,KSTACKTOP - KSTKSIZE,KSTKSIZE,PADDR(bootstack),PTE_W| PTE_P);
 	//////////////////////////////////////////////////////////////////////
 	// Map all of physical memory at KERNBASE.
 	// Ie.  the VA range [KERNBASE, 2^32) should map to
@@ -191,7 +191,7 @@ mem_init(void)
 	// we just set up the mapping anyway.
 	// Permissions: kernel RW, user NONE
 	// Your code goes here:
-	boot_map_region (kern_pgdir,KERNBASE,0xffffffff-KERNBASE+1,(physaddr_t) 0,PTE_W| PTE_P);
+	boot_map_region (kern_pgdir,KERNBASE,0xffffffff-KERNBASE+1, 0,PTE_W| PTE_P);
 	// Check that the initial page directory has been set up correctly.
 	check_kern_pgdir();
 
@@ -526,7 +526,7 @@ page_remove(pde_t *pgdir, void *va)
 		page_decref (pp);//- The ref count on the physical page should decrement.
 //   - The physical page should be freed if the refcount reaches 0.
 		if(pte!=NULL)
-		*pte = 0;// The pg table entry corresponding to 'va' should be set to 0. (if such a PTE exists)
+			*pte = 0;// The pg table entry corresponding to 'va' should be set to 0. (if such a PTE exists)
 		tlb_invalidate (pgdir, va);//The TLB must be invalidated if you remove an entry from  the page table.
 	}
 }
