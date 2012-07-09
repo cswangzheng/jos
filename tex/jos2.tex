@@ -438,6 +438,19 @@ Entry	&Base Virtual Address&	Points to (logically):\\
 1	&0x00400000	&?\\
 0	&0x00000000	&[see next question]\\
 \end{tabular}
+一共用boot\_map\_region()初始化了三块区域，虚拟地址分别为UPAGES，KSTACKTOP - KSTKSIZE和KERNBASE。根据虚拟地址的前十位计算表项中的位置。其中KSTACKTOP - KSTKSIZE只是ULIM到KSTACKTOP中的一段区域，但是要求ULIM到KSTACKTOP - KSTKSIZE是无效的，相当于这一段也被映射了。
+填出来的表如下：
+
+\begin{tabular}{rlcrrrcc}
+Entry	&Base Virtual Address&	Points to (logically):\\
+1023	&?	&Page table for top 4MB of phys memory\\
+.	&?	&?\\
+960	&0xf0000000&KERNBASE\\
+958 &0xef800000&ULIM\\
+956	&0xef000000&UPAGES\\
+.	&?&\\
+0	&0x00000000	&[see next question]\\
+\end{tabular}
 \item
 (From Lecture 3) We have placed the kernel and user environment in the same address space. Why will user programs not be able to read or write the kernel's memory? What specific mechanisms protect the kernel memory?
 
@@ -466,4 +479,8 @@ Revisit the page table setup in kern/entry.S and kern/entrypgdir.c. Immediately 
 relocated:
 \end{verbatim}
 \end{enumerate}
+
+\begin{framed}
+Challenge! We consumed many physical pages to hold the page tables for the KERNBASE mapping. Do a more space-efficient job using the PTE\_PS ("Page Size") bit in the page directory entries. This bit was not supported in the original 80386, but is supported on more recent x86 processors. You will therefore have to refer to Volume 3 of the current Intel manuals. Make sure you design the kernel to use this optimization only on processors that support it!
+\end{framed}
 \end{document} 
