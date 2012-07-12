@@ -120,9 +120,9 @@ page\_init()是对页面链表进行初始化。初始化的方法是，设定page\_free\_list指向空闲
 	//size_t c=0;
 	page_free_list = NULL;
 	physaddr_t pgnum_IOPHYSMEM = PGNUM (IOPHYSMEM);
-	physaddr_t pgnum_EXTPHYSMEM =PGNUM ( PADDR 
+	physaddr_t pgnum_EXTPHYSMEM =PGNUM ( PADDR
 (ROUNDUP(pages+npages* sizeof (struct Page),PGSIZE)));
-	//PGNUM (ROUNDUP(pages+npages* sizeof 
+	//PGNUM (ROUNDUP(pages+npages* sizeof
 //(struct Page),PGSIZE))-PGNUM(kern_pgdir)+PGNUM(EXTPHYSMEM);
 	for (i = 1; i < npages; i++)
 	{
@@ -268,7 +268,7 @@ boot\_map\_region()
 作用是将虚拟地址[va, va+size)映射到物理地址[pa, pa+size)。这里的size要求是页表大小的整数倍，否则就向上取整。该函数基本也就是一段物理地址空间初始化映射到page table中的过程。
 \begin{verbatim}
 static void
-boot_map_region(pde_t *pgdir, uintptr_t va, 
+boot_map_region(pde_t *pgdir, uintptr_t va,
 size_t size, physaddr_t pa, int perm)
 {
 	// Fill this function in
@@ -414,7 +414,7 @@ PADDR(bootstack),PTE_W|PTE_P);
 
 Question:
 \begin{enumerate}
-\item 
+\item
 Assuming that the following JOS kernel code is correct, what type should variable x have, uintptr\_t or physaddr\_t?
 \begin{verbatim}
 mystery_t x;
@@ -478,9 +478,15 @@ Revisit the page table setup in kern/entry.S and kern/entrypgdir.c. Immediately 
 	jmp	*%eax
 relocated:
 \end{verbatim}
+由于实际的物理地址代表的虚拟地址和高地址的虚拟地址指向的是同一块物理地址，这就使得在开始分页和提升EIP之间能够运行。
 \end{enumerate}
 
 \begin{framed}
 Challenge! We consumed many physical pages to hold the page tables for the KERNBASE mapping. Do a more space-efficient job using the PTE\_PS ("Page Size") bit in the page directory entries. This bit was not supported in the original 80386, but is supported on more recent x86 processors. You will therefore have to refer to Volume 3 of the current Intel manuals. Make sure you design the kernel to use this optimization only on processors that support it!
 \end{framed}
+根据深入理解Linux内核中第二章的解释，Intel在80x86处理器引入了扩展分页技术，允许的页框大小是4MB而不是4KB。通过设置页目录项的Page Size标志启用扩展分页功能。通过设置cr4处理器的PSE标志位可以使得扩展分页和常规分页并存。而且20位物理地址只有最高10位是有意义的。
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{lab2ps.jpg}\\
+\end{figure}
 \end{document} 
