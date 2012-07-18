@@ -10,7 +10,7 @@
 #include <kern/console.h>
 #include <kern/monitor.h>
 #include <kern/kdebug.h>
-
+#include <kern/pmap.h>
 #define CMDBUF_SIZE	80	// enough for one VGA text line
 
 
@@ -25,6 +25,8 @@ static struct Command commands[] = {
 	{ "help", "Display this list of commands", mon_help },
 	{ "kerninfo", "Display information about the kernel", mon_kerninfo },
 	{ "backtrace", "Display the backtarce of the stack", mon_backtrace},
+	{"showmappings","Showmapping of a given virtual address",mon_showmappings},
+	{"setmappings","set, clear, or change the permissions of any mapping in the current address space",mon_setmappings},
 };
 #define NCOMMANDS (sizeof(commands)/sizeof(commands[0]))
 
@@ -102,8 +104,89 @@ mon_backtrace(int argc, char **argv, struct Trapframe *tf)
 	return 0;
 }
 
+int
+mon_showmappings(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3)
+		{
+			cprintf("Need low va and high va in 0x , for exampe:\nshowmappings 0x3000 0x5000\n");
+			return 0;
+		}
+	uintptr_t va_low = strtol(argv[1], 0,16);
+	uintptr_t va_high = strtol(argv[2], 0,16);
+	uintptr_t va_low_page = PTE_ADDR(va_low);
+	uintptr_t va_high_page = PTE_ADDR(va_high);
 
+	int pagenum = (va_high_page-va_low_page)/PGSIZE;
+	int i = 0;
+	pte_t *pte;
+	cprintf("----------output start------------\n");
+	cprintf("Virtual Address	    Physical  Permissions(kernel/user)");
+	for(i=0;i<pagenum;i++)
+	{
+		pte = pgdir_walk(kern_pgdir, (void * )(va_low_page+i*PGSIZE), 0);
+		cprintf("\n0x%08x - 0x%08x :",va_low_page+i*PGSIZE,va_low_page+(i+1)*PGSIZE);
+		if ( pte!=NULL&& (*pte&PTE_P))//pte exist
+		{
+		cprintf("0x%08x ",PTE_ADDR(*pte));
+		if (*pte & PTE_W)
+			{
+			if (*pte & PTE_U)
+				cprintf("RW\\RW");
+			else
+				cprintf("RW\\--");
+			}
+		else
+			{
+			if (*pte & PTE_U)
+				cprintf("R-\\R-");
+			else
+				cprintf("R-\\--");
+			}
+		}
+	}
+	cprintf("\n----------output end------------\n");
+	return 0;
+	
+}
 
+int
+mon_setmappings(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3&&argc!=4)
+		{
+			cprintf("set, clear, or change the permissions of any mapping in the current address space");
+			cprintf("Usage:setmappings <OPER> <VA> (<Permission>)\n OPER:-set,-clear,-change Permission:U,W\n");
+			return 0;
+		}
+	
+	uintptr_t va = strtol(argv[2], 0,16);
+	uintptr_t va_page = PTE_ADDR(va);
+	pte_t *pte;
+	pte = pgdir_walk(kern_pgdir, (void * )(va_page), 0);
+	if(strcmp(argv[1],"-clear")==0)
+	{
+		*pte=PTE_ADDR(*pte);
+		cprintf("\n0x%08x permissions clear OK",(*pte));
+	}
+	else if(strcmp(argv[1],"-set")==0||strcmp(argv[1],"-change")==0)
+	{
+		if(argc!=4)
+		{
+			*pte=(*pte)&(~PTE_U)&(~PTE_W);
+		}
+		if (argv[3][0]=='W'||argv[3][0]=='w'||argv[3][1]=='W'||argv[3][1]=='w')
+		{
+			*pte=(*pte)|PTE_W;
+		}
+		if (argv[3][0]=='U'||argv[3][0]=='u'||argv[3][1]=='U'||argv[3][1]=='u')
+		{
+			*pte=(*pte)|PTE_U;
+		}
+		cprintf("Permission set OK\n");
+	}
+	return 0;
+}
 /***** Kernel monitor command interpreter *****/
 
 #define WHITESPACE "\t\r\n "
