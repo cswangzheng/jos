@@ -489,4 +489,188 @@ Challenge! We consumed many physical pages to hold the page tables for the KERNB
   % Requires \usepackage{graphicx}
   \includegraphics[width=5in]{lab2ps.jpg}\\
 \end{figure}
+\begin{framed}
+Challenge! Extend the JOS kernel monitor with commands to:
+Display in a useful and easy-to-read format all of the physical page mappings (or
+lack thereof) that apply to a particular range of virtual/linear addresses in the
+currently active address space. For example, you might enter 'showmappings 0x3000
+0x5000' to display the physical page mappings and corresponding permission bits that
+apply to the pages at virtual addresses 0x3000, 0x4000, and 0x5000.
+Explicitly set, clear, or change the permissions of any mapping in the current
+address space.
+Dump the contents of a range of memory given either a virtual or physical address
+range. Be sure the dump code behaves correctly when the range extends across page
+boundaries!
+Do anything else that you think might be useful later for debugging the kernel.
+(There's a good chance it will be!)
+\end{framed}
+这里主要是在monito.c中增加几条命令方便调试使用。
+\begin{enumerate}
+\item 显示虚拟页对应的物理页地址，实现很简单，只需要调用pgdir\_walk即可。然后显示pte的内容。具体的实现代码如下：
+\begin{verbatim}
+int
+mon_showmappings(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3)
+		{
+			cprintf("Need low va and high va in 0x , for exampe:\nshowmappings 0x3000 0x5000\n");
+			return 0;
+		}
+	uintptr_t va_low = strtol(argv[1], 0,16);
+	uintptr_t va_high = strtol(argv[2], 0,16);
+	uintptr_t va_low_page = PTE_ADDR(va_low);
+	uintptr_t va_high_page = PTE_ADDR(va_high);
+
+	int pagenum = (va_high_page-va_low_page)/PGSIZE;
+	int i = 0;
+	pte_t *pte;
+	cprintf("----------output start------------\n");
+	cprintf("Virtual Address	    Physical  Permissions(kernel/user)");
+	for(i=0;i<pagenum;i++)
+	{
+		pte = pgdir_walk(kern_pgdir, (void * )(va_low_page+i*PGSIZE), 0);
+		cprintf("\n0x%08x - 0x%08x :",va_low_page+i*PGSIZE,va_low_page+(i+1)*PGSIZE);
+		if ( pte!=NULL&& (*pte&PTE_P))//pte exist
+		{
+		cprintf("0x%08x ",PTE_ADDR(*pte));
+		if (*pte & PTE_W)
+			{
+			if (*pte & PTE_U)
+				cprintf("RW\\RW");
+			else
+				cprintf("RW\\--");
+			}
+		else
+			{
+			if (*pte & PTE_U)
+				cprintf("R-\\R-");
+			else
+				cprintf("R-\\--");
+			}
+		}
+	}
+	cprintf("\n----------output end------------\n");
+	return 0;
+	
+}
+\end{verbatim}
+
+\item 设置也和1相同，需要的仅仅是改变*pte的控制位。主要的两个标志位U和W，代表用户权限，和写权限。具体实现代码如下：
+\begin{verbatim}
+int
+mon_setmappings(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3&&argc!=4)
+		{
+			cprintf("set, clear, or change the permissions 
+of any mapping in the current address space");
+			cprintf("Usage:setmappings <OPER> <VA> (<Permission>)
+\n OPER:-set,-clear,-change Permission:U,W\n");
+			return 0;
+		}
+	
+	uintptr_t va = strtol(argv[2], 0,16);
+	uintptr_t va_page = PTE_ADDR(va);
+	pte_t *pte;
+	pte = pgdir_walk(kern_pgdir, (void * )(va_page), 0);
+	if(strcmp(argv[1],"-clear")==0)
+	{
+		*pte=PTE_ADDR(*pte);
+		cprintf("\n0x%08x permissions clear OK",(*pte));
+	}
+	else if(strcmp(argv[1],"-set")==0||strcmp(argv[1],"-change")==0)
+	{
+		if(argc!=4)
+		{
+			*pte=(*pte)&(~PTE_U)&(~PTE_W);
+		}
+		if (argv[3][0]=='W'||argv[3][0]=='w'||argv[3][1]=='W'||argv[3][1]=='w')
+		{
+			*pte=(*pte)|PTE_W;
+		}
+		if (argv[3][0]=='U'||argv[3][0]=='u'||argv[3][1]=='U'||argv[3][1]=='u')
+		{
+			*pte=(*pte)|PTE_U;
+		}
+		cprintf("Permission set OK\n");
+	}
+	return 0;
+}
+\end{verbatim}
+
+\item 这里的难点是物理地址所代表内容的显示，由于*add这里的add是虚拟地址，所以需要把物理地址转换成虚拟地址。由于在pmap.c中，KERNELBASE的虚拟地址已经映射到0开始的物理地址上。
+所以仅仅需要用KADDR将物理地址转换成虚拟地址即可，具体代码如下：
+\begin{verbatim}
+int
+mon_dumpvirtual(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3)
+		{
+			cprintf("Usage:dumpvirtual <address> <size>");
+			return 0;
+		}
+	uintptr_t va=strtol(argv[1], 0,16);
+	uintptr_t va_assign = va&(~0xf);
+	uint32_t size = strtol(argv[2],0,10);
+	uint32_t i =0;
+	uint32_t j=0;
+	cprintf("VA	     Contents");
+	for (i=0;i<size/4;i++)
+		{
+		cprintf("\n0x%08x :",va_assign+i*16);
+		for(j=0;j<4;j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	if (size-i*4>0)
+		{
+		cprintf("\n0x%08x :",va_assign+i*16);
+		for (j=0;(i*4+j<size);j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	cprintf("\n");
+	return 0;
+}
+
+int
+mon_dumpphysical(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3)
+		{
+			cprintf("Usage:dumpphysical <address> <size>");
+			return 0;
+		}
+	physaddr_t pa=(strtol(argv[1], 0,16));
+	physaddr_t pa_assign = pa&(~0xf);
+	uintptr_t va=(uint32_t)KADDR(pa);
+	uintptr_t va_assign = va&(~0xf);
+	uint32_t size = strtol(argv[2],0,10);
+	uint32_t i =0;
+	uint32_t j=0;
+	cprintf("PA	     Contents");
+	for (i=0;i<size/4;i++)
+		{
+		cprintf("\n0x%08x :",pa_assign+i*16);
+		for(j=0;j<4;j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	if (size-i*4>0)
+		{
+		cprintf("\n0x%08x :",pa_assign+i*16);
+		for (j=0;(i*4+j<size);j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	cprintf("\n");
+	return 0;
+}
+\end{verbatim}
+命令运行的结果如下：
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{lab2ex2_1.jpg}\\
+\end{figure}
+\begin{figure}
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=5in]{lab2ex2_2.jpg}\\
+\end{figure}
+\end{enumerate}
 \end{document} 
