@@ -1,3 +1,16 @@
+[1;256r[256;256H[6n
+Google, Inc.
+Serial Graphics Adapter 11/03/11
+SGABIOS $Id$ (pbonzini@yakj.usersys.redhat.com) Thu Nov  3 13:33:51 UTC 2011
+4 0
+[2J[m[mSeaBIOS (version pre-0.6.3-20110315_112143-titi)
+
+
+iPXE v1.0.0-591-g7aee315
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+07FC8D60+07F88D60 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+Booting from Hard Disk...
 6828 decimal is 15254 octal!
 Physical memory: 66556K available, base = 640K, extended = 65532K
 check_page_alloc() succeeded!

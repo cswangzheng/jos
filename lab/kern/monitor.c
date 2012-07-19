@@ -26,7 +26,9 @@ static struct Command commands[] = {
 	{ "kerninfo", "Display information about the kernel", mon_kerninfo },
 	{ "backtrace", "Display the backtarce of the stack", mon_backtrace},
 	{"showmappings","Showmapping of a given virtual address",mon_showmappings},
-	{"setmappings","set, clear, or change the permissions of any mapping in the current address space",mon_setmappings},
+	{"setmappings","Set, clear, or change the permissions of any mapping in the current address space",mon_setmappings},
+	{"dumpvirtual","Dump a range of virtual memory",mon_dumpvirtual},
+	{"dumpphysical","Dump a range of physical memory",mon_dumpphysical},
 };
 #define NCOMMANDS (sizeof(commands)/sizeof(commands[0]))
 
@@ -185,6 +187,68 @@ mon_setmappings(int argc, char **argv, struct Trapframe *tf)
 		}
 		cprintf("Permission set OK\n");
 	}
+	return 0;
+}
+
+int 
+mon_dumpvirtual(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3)
+		{
+			cprintf("Usage:dumpvirtual <address> <size>");
+			return 0;
+		}
+	uintptr_t va=strtol(argv[1], 0,16);
+	uintptr_t va_assign = va&(~0xf);
+	uint32_t size = strtol(argv[2],0,10);
+	uint32_t i =0;
+	uint32_t j=0;
+	cprintf("VA	     Contents");
+	for (i=0;i<size/4;i++)
+		{
+		cprintf("\n0x%08x :",va_assign+i*16);
+		for(j=0;j<4;j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	if (size-i*4>0)
+		{
+		cprintf("\n0x%08x :",va_assign+i*16);
+		for (j=0;(i*4+j<size);j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	cprintf("\n");
+	return 0;
+}
+
+int 
+mon_dumpphysical(int argc, char **argv, struct Trapframe *tf)
+{
+	if(argc!=3)
+		{
+			cprintf("Usage:dumpphysical <address> <size>");
+			return 0;
+		}
+	physaddr_t pa=(strtol(argv[1], 0,16));
+	physaddr_t pa_assign = pa&(~0xf);
+	uintptr_t va=(uint32_t)KADDR(pa);
+	uintptr_t va_assign = va&(~0xf);
+	uint32_t size = strtol(argv[2],0,10);
+	uint32_t i =0;
+	uint32_t j=0;
+	cprintf("PA	     Contents");
+	for (i=0;i<size/4;i++)
+		{
+		cprintf("\n0x%08x :",pa_assign+i*16);
+		for(j=0;j<4;j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	if (size-i*4>0)
+		{
+		cprintf("\n0x%08x :",pa_assign+i*16);
+		for (j=0;(i*4+j<size);j++)
+			cprintf("0x%08x ",*((uintptr_t *)(va_assign+i*16+4*j)));
+		}
+	cprintf("\n");
 	return 0;
 }
 /***** Kernel monitor command interpreter *****/
