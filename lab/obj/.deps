@@ -6,14 +6,14 @@ obj/user/badsegment.o: user/badsegment.c inc/lib.h inc/types.h \
  inc/trap.h inc/memlayout.h inc/mmu.h inc/syscall.h
 obj/kern/entry.o: kern/entry.S inc/mmu.h inc/memlayout.h inc/trap.h
 obj/lib/string.o: lib/string.c inc/string.h inc/types.h
-obj/boot/main.o: boot/main.c inc/x86.h inc/types.h inc/elf.h
-obj/kern/console.o: kern/console.c inc/x86.h inc/types.h inc/memlayout.h \
- inc/mmu.h inc/kbdreg.h inc/string.h inc/assert.h inc/stdio.h \
- inc/stdarg.h kern/console.h
 obj/kern/init.o: kern/init.c inc/stdio.h inc/stdarg.h inc/string.h \
  inc/types.h inc/assert.h kern/monitor.h kern/console.h kern/pmap.h \
  inc/memlayout.h inc/mmu.h kern/kclock.h kern/env.h inc/env.h inc/trap.h \
  kern/trap.h
+obj/kern/console.o: kern/console.c inc/x86.h inc/types.h inc/memlayout.h \
+ inc/mmu.h inc/kbdreg.h inc/string.h inc/assert.h inc/stdio.h \
+ inc/stdarg.h kern/console.h
+obj/boot/main.o: boot/main.c inc/x86.h inc/types.h inc/elf.h
 obj/lib/printf.o: lib/printf.c inc/types.h inc/stdio.h inc/stdarg.h \
  inc/lib.h inc/string.h inc/error.h inc/assert.h inc/env.h inc/trap.h \
  inc/memlayout.h inc/mmu.h inc/syscall.h
@@ -21,11 +21,11 @@ obj/lib/entry.o: lib/entry.S inc/mmu.h inc/memlayout.h
 obj/user/faultwrite.o: user/faultwrite.c inc/lib.h inc/types.h \
  inc/stdio.h inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h \
  inc/trap.h inc/memlayout.h inc/mmu.h inc/syscall.h
-obj/kern/printfmt.o: lib/printfmt.c inc/types.h inc/stdio.h inc/stdarg.h \
- inc/string.h inc/error.h
 obj/user/faultread.o: user/faultread.c inc/lib.h inc/types.h inc/stdio.h \
  inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h inc/trap.h \
  inc/memlayout.h inc/mmu.h inc/syscall.h
+obj/kern/printfmt.o: lib/printfmt.c inc/types.h inc/stdio.h inc/stdarg.h \
+ inc/string.h inc/error.h
 obj/lib/syscall.o: lib/syscall.c inc/syscall.h inc/lib.h inc/types.h \
  inc/stdio.h inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h \
  inc/trap.h inc/memlayout.h inc/mmu.h
@@ -45,11 +45,11 @@ obj/kern/monitor.o: kern/monitor.c inc/stdio.h inc/stdarg.h inc/string.h \
 obj/user/breakpoint.o: user/breakpoint.c inc/lib.h inc/types.h \
  inc/stdio.h inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h \
  inc/trap.h inc/memlayout.h inc/mmu.h inc/syscall.h
+obj/lib/readline.o: lib/readline.c inc/stdio.h inc/stdarg.h inc/error.h
 obj/kern/syscall.o: kern/syscall.c inc/x86.h inc/types.h inc/error.h \
  inc/string.h inc/assert.h inc/stdio.h inc/stdarg.h kern/env.h inc/env.h \
  inc/trap.h inc/memlayout.h inc/mmu.h kern/pmap.h kern/trap.h \
  kern/syscall.h inc/syscall.h kern/console.h
-obj/lib/readline.o: lib/readline.c inc/stdio.h inc/stdarg.h inc/error.h
 obj/kern/kdebug.o: kern/kdebug.c inc/stab.h inc/types.h inc/string.h \
  inc/memlayout.h inc/mmu.h inc/assert.h inc/stdio.h inc/stdarg.h \
  kern/kdebug.h kern/pmap.h kern/env.h inc/env.h inc/trap.h
@@ -90,16 +90,16 @@ obj/user/testbss.o: user/testbss.c inc/lib.h inc/types.h inc/stdio.h \
 obj/user/evilhello.o: user/evilhello.c inc/lib.h inc/types.h inc/stdio.h \
  inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h inc/trap.h \
  inc/memlayout.h inc/mmu.h inc/syscall.h
-obj/user/buggyhello.o: user/buggyhello.c inc/lib.h inc/types.h \
- inc/stdio.h inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h \
- inc/trap.h inc/memlayout.h inc/mmu.h inc/syscall.h
-obj/kern/trapentry.o: kern/trapentry.S inc/mmu.h inc/memlayout.h \
- inc/trap.h
+obj/user/softint.o: user/softint.c inc/lib.h inc/types.h inc/stdio.h \
+ inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h inc/trap.h \
+ inc/memlayout.h inc/mmu.h inc/syscall.h
+obj/boot/boot.o: boot/boot.S inc/mmu.h
 obj/kern/trap.o: kern/trap.c inc/mmu.h inc/types.h inc/x86.h inc/assert.h \
  inc/stdio.h inc/stdarg.h kern/pmap.h inc/memlayout.h kern/trap.h \
  inc/trap.h kern/console.h kern/monitor.h kern/env.h inc/env.h \
  kern/syscall.h inc/syscall.h
-obj/boot/boot.o: boot/boot.S inc/mmu.h
-obj/user/softint.o: user/softint.c inc/lib.h inc/types.h inc/stdio.h \
- inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h inc/trap.h \
- inc/memlayout.h inc/mmu.h inc/syscall.h
+obj/kern/trapentry.o: kern/trapentry.S inc/mmu.h inc/memlayout.h \
+ inc/trap.h
+obj/user/buggyhello.o: user/buggyhello.c inc/lib.h inc/types.h \
+ inc/stdio.h inc/stdarg.h inc/string.h inc/error.h inc/assert.h inc/env.h \
+ inc/trap.h inc/memlayout.h inc/mmu.h inc/syscall.h

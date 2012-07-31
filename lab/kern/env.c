@@ -187,7 +187,13 @@ env_setup_vm(struct Env *e)
 	//    - The functions in kern/pmap.h are handy.
 
 	// LAB 3: Your code here.
-
+	e->env_pgdir =(pde_t *) page2kva(p) ;
+	
+	p->pp_ref++;
+	memset (e->env_pgdir, 0, PGSIZE);
+	for(i=PDX(UTOP); i < PGSIZE/sizeof(pde_t) ;i++)
+		e->env_pgdir[i] = kern_pgdir[i] ;
+	
 	// UVPT maps the env's own page table read-only.
 	// Permissions: kernel R, user R
 	e->env_pgdir[PDX(UVPT)] = PADDR(e->env_pgdir) | PTE_P | PTE_U;
@@ -275,6 +281,20 @@ region_alloc(struct Env *e, void *va, size_t len)
 	//   'va' and 'len' values that are not page-aligned.
 	//   You should round va down, and round (va + len) up.
 	//   (Watch out for corner-cases!)
+	va=ROUNDDOWN(va, PGSIZE);
+	size_t end =ROUNDUP((size_t )va+len, PGSIZE);
+	size_t i;
+	struct Page *pp;
+	for(i=0;i<end;i++)
+	{
+		pp=page_alloc(ALLOC_ZERO);
+		if(pp!=NULL)
+		{
+			page_insert(kern_pgdir, pp, va+i*PGSIZE, PTE_U|PTE_W|PTE_P);
+		}
+		
+	}
+	
 }
 
 //
@@ -331,11 +351,28 @@ load_icode(struct Env *e, uint8_t *binary, size_t size)
 	//  What?  (See env_run() and env_pop_tf() below.)
 
 	// LAB 3: Your code here.
+	struct Elf *env_elf; 
+	struct Proghdr *ph, *eph; 
+	env_elf = (struct Elf *) binary; 
+	
+	ph = (struct Proghdr*)((uint8_t*)(env_elf) + env_elf->e_phoff); 
+	eph = ph + env_elf->e_phnum; 
+	for (; ph < eph; ph++) 
+	{ 
+    	  if(ph->p_type == ELF_PROG_LOAD) 
+     	 { 
+      	      	region_alloc(e,(void*)ph->p_va,ph->p_memsz); 
+      	      	memmove((void*)ph->p_va,binary+ph->p_offset,ph->p_filesz); 
+       	     	memset((void*)(ph->p_va + ph->p_filesz),0,ph->p_memsz-ph->p_filesz); 
+   	   }    
+	} 
 
+	e->env_tf.tf_eip = env_elf->e_entry;   
 	// Now map one page for the program's initial stack
 	// at virtual address USTACKTOP - PGSIZE.
 
 	// LAB 3: Your code here.
+	region_alloc (e, (void*) (USTACKTOP - PGSIZE), PGSIZE);
 }
 
 //
